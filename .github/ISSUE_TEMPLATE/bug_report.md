@@ -1,38 +1,32 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+name: バグ報告 / Bug report
+about: 不具合の報告はこちら / Create a report to help us improve
+labels: 'bug'
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 発生している問題 / Current Behavior
+<!-- バグの内容を明確かつ簡潔に説明してください。 -->
+<!-- A clear and concise description of what the bug is. -->
+- xxx
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## スクリーンショット / Screenshots
+<!-- 必要に応じて、問題を説明するためのスクリーンショットを追加してください。 -->
+<!-- If applicable, add screenshots to help explain your problem. -->
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## 期待する見せ方・挙動 / Expected Behavior
+<!-- 期待する動作を明確かつ簡潔に説明してください。 -->
+<!-- A clear and concise description of what you expected to happen. -->
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## 起こっている問題の再現手段 / Steps to Reproduce
+1. xxx
+2. xxx
+3. xxx
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## 動作環境 / Context (Environment)
+- macOS / Windows / Linux / iOS / Android
+- Chrome / Safari / Firefox / Edge
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+## 考えられる解決策 / Possible Solution
+<!-- もし思いつくのであれば、問題の解決策を説明してください。 -->
+<!-- If you can think of one, explain the solution to your problem. -->
