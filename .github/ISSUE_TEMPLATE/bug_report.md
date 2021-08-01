@@ -32,5 +32,5 @@ labels: 'bug'
 
 ## ✅ タスク / Tasks
 
-- [] xxx
-- [] xxx
+- [ ] xxx
+- [ ] xxx

@@ -27,5 +27,5 @@ labels: 'improvement'
 
 ## ✅ タスク / Tasks
 
-- [] xxx
-- [] xxx
+- [ ] xxx
+- [ ] xxx
