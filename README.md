@@ -8,3 +8,7 @@ GitHub Issues & PRsのテンプレートです。（日本語、英語対応）
 
 皆様の本リポジトリに対するご意見・ご感想等をお聞かせください📝  
 [GitHub Discussions](https://github.com/nishidayoshikatsu/github-templates-for-japanese/discussions)より、お気軽にご投稿ください。
+
+## LICENSE
+
+[MIT](https://github.com/nishidayoshikatsu/github-templates-for-japanese/blob/main/LICENSE)
