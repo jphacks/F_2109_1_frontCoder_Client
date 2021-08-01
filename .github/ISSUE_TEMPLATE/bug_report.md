@@ -1,5 +1,5 @@
 ---
-name: バグ報告 / Bug report
+name: 🐛 バグ報告 / Bug report
 about: 不具合の報告はこちら / Create a report to help us improve
 labels: 'bug'
 
@@ -30,7 +30,7 @@ labels: 'bug'
 <!-- もし思いつくのであれば、問題の解決策を説明してください。 -->
 <!-- If you can think of one, explain the solution to your problem. -->
 
-## 🚀 タスク / Tasks
+## ✅ タスク / Tasks
 
 - [] xxx
 - [] xxx

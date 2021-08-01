@@ -1,5 +1,5 @@
 ---
-name: 改善提案 / Improvement Suggestions
+name: 🚀 改善提案 / Improvement Suggestions
 about: 不具合以外の提案はこちら / Suggest an idea for this project
 labels: 'improvement'
 
@@ -25,7 +25,7 @@ labels: 'improvement'
 <!-- もし思いつくのであれば、問題の解決策を説明してください。 -->
 <!-- If you can think of one, explain the solution to your problem. -->
 
-## 🚀 タスク / Tasks
+## ✅ タスク / Tasks
 
 - [] xxx
 - [] xxx
