@@ -8,7 +8,6 @@ labels: 'bug'
 ## 発生している問題 / Current Behavior
 <!-- バグの内容を明確かつ簡潔に説明してください。 -->
 <!-- A clear and concise description of what the bug is. -->
-- xxx
 
 ## スクリーンショット / Screenshots
 <!-- 必要に応じて、問題を説明するためのスクリーンショットを追加してください。 -->
@@ -30,3 +29,8 @@ labels: 'bug'
 ## 考えられる解決策 / Possible Solution
 <!-- もし思いつくのであれば、問題の解決策を説明してください。 -->
 <!-- If you can think of one, explain the solution to your problem. -->
+
+### タスク / Tasks
+
+- [] xxx
+- [] xxx
