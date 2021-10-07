@@ -2,7 +2,11 @@
 
 GitHub Issues & PRsのテンプレートです。（日本語、英語対応）
 
-![issueテンプレート](https://user-images.githubusercontent.com/42875682/127784681-750f0388-5f18-439e-b2ba-081e7474c152.png)
+![issueテンプレート](https://user-images.githubusercontent.com/42875682/136322041-98a91d97-65c8-43ac-831f-3acc899a8a8b.png)
+
+## ✅ タスク追加 / Add tasks
+
+![✅ タスク追加 / Add tasks](https://user-images.githubusercontent.com/42875682/136322452-39a24635-779c-4bb6-8b96-ca30dc85bbe8.png)
 
 ## 🐛 バグ報告 / Bug report
 
