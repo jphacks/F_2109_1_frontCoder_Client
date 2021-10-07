@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-docker",
+    "mhutchie.git-graph",
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "github.github-vscode-theme",
+    "vtrois.gitmoji-vscode",
+    "ms-ceintl.vscode-language-pack-ja",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vsliveshare.vsliveshare-audio",
+    "pnp.polacode",
+    "gruntfuggly.todo-tree",
+    "shardulm94.trailing-spaces",
+    "visualstudioexptteam.vscodeintellicode",
+    "vscode-icons-team.vscode-icons",
+    "mosapride.zenkaku",
+    "davidanson.vscode-markdownlint",
+    "oderwat.indent-rainbow"
+  ]
+}
