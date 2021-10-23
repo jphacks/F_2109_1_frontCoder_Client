@@ -11,7 +11,18 @@ import {
 const isEqual = require('lodash.isequal')
 let ace
 
-export const themes = {
+export type Theme =
+  | 'monokai'
+  | 'github'
+  | 'tomorrow'
+  | 'kuroir'
+  | 'twilight'
+  | 'xcode'
+  | 'textmate'
+  | 'solarized_dark'
+  | 'solarized_light'
+  | 'terminal'
+export const theme: { [P in Theme]: Theme } = {
   monokai: 'monokai',
   github: 'github',
   tomorrow: 'tomorrow',
@@ -24,12 +35,31 @@ export const themes = {
   terminal: 'terminal',
 }
 
+export type LanguageMode = 'html' | 'css' | 'javascript'
+export const languageMode: { [P in LanguageMode]: LanguageMode } = {
+  html: 'html',
+  css: 'css',
+  javascript: 'javascript',
+}
+
+export type KeyBind = 'vscode' | 'vim'
+export const keyBind: { [P in KeyBind]: KeyBind } = {
+  vscode: 'vscode',
+  vim: 'vim',
+}
+
 let Range
 // MEMO: ここはブラウザでのみ動かす.(SSR時に動いてErrorになったので.)
 if (typeof window !== 'undefined') {
   Range = require('ace-builds')
-  Object.keys(themes).forEach((theme) =>
+  Object.keys(languageMode).forEach((mode) =>
+    require(`ace-builds/src-noconflict/mode-${mode}`)
+  )
+  Object.keys(theme).forEach((theme) =>
     require(`ace-builds/src-noconflict/theme-${theme}`)
+  )
+  Object.keys(keyBind).forEach((binding) =>
+    require(`ace-builds/src-noconflict/keybinding-${binding}`)
   )
   ace = getAceInstance()
 }
