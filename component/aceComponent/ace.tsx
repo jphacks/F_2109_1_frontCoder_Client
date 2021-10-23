@@ -7,6 +7,7 @@ import ReactAce, {
   keyBind,
   KeyBind,
 } from './aceInternal'
+import { createAnswear } from '../../api/answear'
 
 type EditorText = { [P in LanguageMode]: string }
 
@@ -43,7 +44,8 @@ const AceComponent: React.FC = () => {
   }
 
   const onSend = () => {
-    // TODO: Serverへのrequest処理
+    // TODO: 確認msg的なものを入れたい.
+    createAnswear(editorText)
   }
 
   return (
