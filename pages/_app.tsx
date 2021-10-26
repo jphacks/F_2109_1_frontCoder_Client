@@ -6,7 +6,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <AceComponent></AceComponent>
     </>
   )
 }
