@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import HTMLView from 'react-native-htmlview'
 
 const createHTML = () => {
   return { __html: '<h1>First</h1><h3>Second</h3>' }
@@ -15,6 +16,7 @@ const PreviewComponent: React.VFC<Props> = ({ htmlText }) => {
       <div className="preview-box">
         <span className="preview-title">Preview</span>
         <div dangerouslySetInnerHTML={{ __html: htmlText }}></div>
+        {/*<HTMLView value={htmlText} />*/}
       </div>
     </div>
   )

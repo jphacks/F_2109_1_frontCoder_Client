@@ -1,16 +1,9 @@
 import * as client from './client'
+import { Problem } from '../types/schema'
 
 /**
  * wip api.
  */
-
-type Problem = {
-  id: number
-  image: string[]
-  source_code: string
-  created_at: Date
-  updated_at: Date
-}
 
 export const getProblem = async (req: {}): Promise<Problem> => {
   const res = await client.get<Problem>('/problem')
