@@ -10,7 +10,11 @@ import MenuIcon from '@mui/icons-material/Menu'
 const Footer: VFC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: '#FFFFFF' }}>
+      <AppBar
+        position="sticky"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        style={{ backgroundColor: '#FFFFFF' }}
+      >
         <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}>
             提出
