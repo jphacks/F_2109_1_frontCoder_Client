@@ -16,8 +16,8 @@ a {
 }
 
 .iframe-coding {
-  width: 80vw;
-  height: 690px;
+  width: calc(100vw - 375px);
+  height: 100%;
   border: 0;
   border-radius: 4px;
   overflow: hidden;
