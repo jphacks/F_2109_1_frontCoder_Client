@@ -11,9 +11,15 @@ const Footer: VFC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="sticky"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        style={{ backgroundColor: '#FFFFFF' }}
+        position="fixed"
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          top: 'auto',
+          bottom: 0,
+        }}
+        style={{
+          backgroundColor: '#FFFFFF',
+        }}
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}>
