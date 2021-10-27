@@ -1,6 +1,8 @@
 import * as client from './client'
 import axios from 'axios'
 import type { Dir } from '../types/schema'
+import Cors from 'cors'
+import initMiddleware from '../../lib/init-middleware'
 
 import htmlFile from '../data/sample1/index.html'
 //import cssFile from '../data/sample1/src/style.css'
@@ -14,6 +16,12 @@ export type uploadAnswearRequest = {
 export type uploadAnswearResponse = {
   url: string
 }
+
+const cors = initMiddleware(
+  Cors({
+    methods: ['GET', 'POST', 'OPTIONS'],
+  })
+)
 
 export const sendAnswear = async (sourceCode) => {
   console.info('start send answer')
@@ -40,8 +48,10 @@ export const sendAnswear = async (sourceCode) => {
   }
 }
 
-export const getScore = async (req) => {
+export const getScore = async (req, res) => {
   console.info('start')
+  await cors(req, res)
+
   const endPoint = `${process.env.NEXT_PUBLIC_API_URL}/v0.1.0/imgScore`
 
   try {
@@ -54,8 +64,10 @@ export const getScore = async (req) => {
   }
 }
 
-export const closeProblem = async (req) => {
+export const closeProblem = async (req, res) => {
   console.info('start')
+  await cors(req, res)
+
   const endPoint = `${process.env.NEXT_PUBLIC_API_URL}/v0.1.0/close`
 
   try {
