@@ -3,13 +3,9 @@ import { VFC } from 'react'
 import { Card, CardContent, Divider, Box } from '@mui/material'
 import sample from '../public/sample-screen.png'
 import { useEffect } from 'react'
-import { postAnswear } from '../api/answear'
+import postAnswear from '../api/answear'
 
 const SampleView: VFC = () => {
-  useEffect(() => {
-    //await postAnswear()
-  }, [])
-
   return (
     <div>
       <Box
