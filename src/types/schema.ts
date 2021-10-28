@@ -12,7 +12,7 @@ export type Dir = {
 export type Problem = {
   id: number
   title: string
-  discription: string
+  description: string
   image: string
   source_code: Dir
   created_at: Date

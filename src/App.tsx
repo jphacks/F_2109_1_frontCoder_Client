@@ -1,6 +1,6 @@
 import './App.css'
 import Login from './components/Login'
-import Detail from './pages/Detail'
+import Detail from './components/Detail'
 
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/problem">
             問題一覧
           </Route>
-          <Route path="/problem/:broadcastId" children={<Detail />} />
+          <Route path="/problem/:problemId" children={<Detail />} />
           <Route path="/coding">
             <Coding />
           </Route>

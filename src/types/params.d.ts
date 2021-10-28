@@ -1,3 +1,3 @@
 export type DetailParams = {
-  broadcastId: string
+  problemId: string
 }
