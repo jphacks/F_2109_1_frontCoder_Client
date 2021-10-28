@@ -1,0 +1,11 @@
+.iframe-coding {
+  width: calc(100vw - 375px);
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preview img {
+  width: 375px;
+}
