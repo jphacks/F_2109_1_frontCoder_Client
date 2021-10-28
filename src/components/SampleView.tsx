@@ -1,10 +1,23 @@
 import { VFC } from "react";
 import { Card, CardContent, Divider, Box } from "@mui/material";
-import sample from "../public/sample-screen.png";
 import { useEffect } from "react";
 //import postAnswear from "../api/answear";
+import axios from "axios";
+
+import "../coding.css";
 
 const SampleView: VFC = () => {
+  useEffect(() => {
+    console.info("プレビュー読み込み");
+    /*const addData = {
+      id: "9a1ics",
+    };
+    const { message } = await axios.post('source', req).then((res) => {
+      return res.data;
+    });
+    console.info(message);*/
+  }, []);
+
   return (
     <div>
       <Box
@@ -16,12 +29,9 @@ const SampleView: VFC = () => {
           pr: 1,
         }}
       >
-        <img
-          src="https://i.pinimg.com/originals/7d/fb/73/7dfb7328490e40dc892c9bf3f7e09ddc.jpg"
-          alt="お手本"
-          width="350px"
-          height="1000px"
-        />
+        <div className="preview">
+          <img src={`${window.location.origin}/p1.png`} alt="お手本" />
+        </div>
       </Box>
     </div>
   );
