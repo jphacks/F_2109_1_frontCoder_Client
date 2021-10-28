@@ -1,11 +1,11 @@
-import "./App.css";
-import Login from "./components/Login";
+import './App.css'
+import Login from './components/Login'
 
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import Coding from "./coding";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import Coding from './coding'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
