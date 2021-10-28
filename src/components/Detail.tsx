@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Grid, Typography } from '@material-ui/core'
+import { Box, Button, Grid, Typography } from '@material-ui/core'
 import { useParams } from 'react-router'
 import DetailItem from './detail/DetailItem'
 import { DetailParams } from '../types/params'

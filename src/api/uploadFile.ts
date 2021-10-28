@@ -11,7 +11,7 @@ type Props = {
 
 const uploadFile = async (req: any) => {
   const data = await axios.post(endpoint, req).then((res) => {
-    return res.data
+    return res.data as Props
   })
 
   return data

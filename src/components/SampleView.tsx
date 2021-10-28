@@ -1,9 +1,6 @@
 import { VFC } from 'react'
-import { Card, CardContent, Divider, Box } from '@mui/material'
+import { Box } from '@mui/material'
 import { useEffect } from 'react'
-//import postAnswear from "../api/answear";
-import axios from 'axios'
-
 import '../coding.css'
 
 const SampleView: VFC = () => {

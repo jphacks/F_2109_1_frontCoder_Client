@@ -4,7 +4,7 @@ import Detail from './components/Detail'
 
 import Competitions from './pages/competitions'
 // import { BrowserRouter as Router, Route } from "react-router-dom";
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
