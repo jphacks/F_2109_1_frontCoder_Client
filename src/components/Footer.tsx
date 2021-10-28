@@ -4,30 +4,25 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-//import GetScore from "../api/GetScore";
-//import { sendAnswear, getScore, closeProblem } from '../api/answear'
+import getScore from "../api/getScore";
+import closeProblem from "../api/closeProblem";
 
 const Footer: VFC = () => {
-  //const [holidays, setHolidays] = useState([])
   const submitCode = async () => {
-    /*const addData = {
-      url: "https://www.tokyo-gas.co.jp/paccho/_assets/images/item/wall_paper/distribution/android_1080x1920/ao_android_1080x1920.jpg",
+    console.info("/v0.1.0/imgScore");
+    const req = {
+      url: "https://dev.d2evtgvttl8fuv.amplifyapp.com/p1.png",
     };
-    console.info("submit");
-    //await getScore(addData)
-    await GetScore(addData);*/
-    console.info("isasa");
-    /*const addData = {
-      id: '9a1ics',
-    }
-    const { message } = await closeProblem(addData)
-    console.info(message)*/
-    //const sourceCode = new FormData()
-    //sourceCode.append('source_code', htmlFile)
+    const { imgScore } = await getScore(req);
+    console.info(imgScore);
 
-    //await sendAnswear(sourceCode)
+    console.info("/v0.1.0/close");
+
+    const req2 = {
+      id: "9a1ics",
+    };
+    const { message } = await closeProblem(req2);
+    console.info(message);
   };
 
   return (
