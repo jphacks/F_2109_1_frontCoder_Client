@@ -1,4 +1,5 @@
 import { VFC, useState } from "react";
+import { toast } from "react-toastify";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -37,8 +38,10 @@ const Footer: VFC = () => {
       },
     };
     try {
-      const { url } = await uploadFile(req1);
-      console.info(url);
+      await uploadFile(req1).then((url) => {
+        toast.success("ソースコードのアップロードが完了しました.");
+        console.info(url);
+      });
     } catch (e) {
       console.error(e);
     }
@@ -48,8 +51,10 @@ const Footer: VFC = () => {
       url: "https://dev.d2evtgvttl8fuv.amplifyapp.com/p1.png",
     };
     try {
-      const { imgScore } = await getScore(req2);
-      console.info(imgScore);
+      await getScore(req2).then((imgScore) => {
+        toast.success("UIテストが完了しました.");
+        console.info(imgScore);
+      });
     } catch (e) {
       console.error(e);
     }
@@ -60,8 +65,10 @@ const Footer: VFC = () => {
       id: "9a1ics",
     };
     try {
-      const { message } = await closeProblem(req3);
-      console.info(message);
+      await closeProblem(req3).then((message) => {
+        toast.success("問題の回答が完了しました.");
+        console.info(message);
+      });
     } catch (e) {
       console.error(e);
     }
