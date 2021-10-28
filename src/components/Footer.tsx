@@ -6,22 +6,52 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import getScore from "../api/getScore";
 import closeProblem from "../api/closeProblem";
+import uploadFile from "../api/uploadFile";
+
+// import htmlFile from "../../public/sample-code/index.html";
+//import cssFile from "../../public/sample-code/index.html";
 
 const Footer: VFC = () => {
   const submitCode = async () => {
+    console.info("/v0.1.0/upload");
+    const req1 = {
+      source_code: {
+        dirName: "/",
+        file: [
+          {
+            fileName: "index.html",
+            code: "<h1>プレビュー</h1>",
+          },
+        ],
+        dir: [
+          {
+            dirName: "/src",
+            file: [
+              {
+                fileName: "style.css",
+                code: "/*cssをここに書いてね*/",
+              },
+            ],
+          },
+        ],
+      },
+    };
+    const { url } = await uploadFile(req1);
+    console.info(url);
+
     console.info("/v0.1.0/imgScore");
-    const req = {
+    const req2 = {
       url: "https://dev.d2evtgvttl8fuv.amplifyapp.com/p1.png",
     };
-    const { imgScore } = await getScore(req);
+    const { imgScore } = await getScore(req2);
     console.info(imgScore);
 
     console.info("/v0.1.0/close");
 
-    const req2 = {
+    const req3 = {
       id: "9a1ics",
     };
-    const { message } = await closeProblem(req2);
+    const { message } = await closeProblem(req3);
     console.info(message);
   };
 
