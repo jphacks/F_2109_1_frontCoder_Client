@@ -36,23 +36,35 @@ const Footer: VFC = () => {
         ],
       },
     };
-    const { url } = await uploadFile(req1);
-    console.info(url);
+    try {
+      const { url } = await uploadFile(req1);
+      console.info(url);
+    } catch (e) {
+      console.error(e);
+    }
 
     console.info("/v0.1.0/imgScore");
     const req2 = {
       url: "https://dev.d2evtgvttl8fuv.amplifyapp.com/p1.png",
     };
-    const { imgScore } = await getScore(req2);
-    console.info(imgScore);
+    try {
+      const { imgScore } = await getScore(req2);
+      console.info(imgScore);
+    } catch (e) {
+      console.error(e);
+    }
 
     console.info("/v0.1.0/close");
 
     const req3 = {
       id: "9a1ics",
     };
-    const { message } = await closeProblem(req3);
-    console.info(message);
+    try {
+      const { message } = await closeProblem(req3);
+      console.info(message);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
