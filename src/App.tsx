@@ -2,6 +2,8 @@ import './App.css'
 import Login from './components/Login'
 import Detail from './components/Detail'
 
+import Competitions from './pages/competitions'
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
 import { ToastContainer } from 'react-toastify'
@@ -22,6 +24,9 @@ function App() {
           <Route path="/problem/:problemId" children={<Detail />} />
           <Route path="/coding">
             <Coding />
+          </Route>
+          <Route exact path="/competitions">
+            <Competitions />
           </Route>
         </Switch>
       </BrowserRouter>
