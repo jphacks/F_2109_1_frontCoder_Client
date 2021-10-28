@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import Header from '../components/Header'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
@@ -75,10 +75,10 @@ export default function Competitions() {
           </Grid> */}
           {problem.map(
             (get: {
-              id: String
-              image: String
-              title: String
-              description: String
+              id: string
+              image: string
+              title: string
+              description: string
               createdAt: Date
             }) => (
               <Grid item xs={12} sm={6} md={4} lg={3}>
