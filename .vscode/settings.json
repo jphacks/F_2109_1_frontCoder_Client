@@ -18,9 +18,7 @@
   "editor.formatOnType": true,
   "files.insertFinalNewline": true,
   "css.validate": false,
-  "editor.codeActionsOnSave": [
-    "source.fixAll.eslint"
-  ],
+  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "editor.quickSuggestions": {
     "strings": true
   },
