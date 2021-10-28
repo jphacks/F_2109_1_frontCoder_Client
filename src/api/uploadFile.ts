@@ -1,20 +1,20 @@
-import axios from "axios";
-import { API_URL } from "./endpoint";
-import { Dir } from "../types/schema";
+import axios from 'axios'
+import { API_URL } from './endpoint'
+import { Dir } from '../types/schema'
 
-const endpoint = `${API_URL}/v0.1.0/upload`;
+const endpoint = `${API_URL}/v0.1.0/upload`
 
 type Props = {
-  sourceCode: Dir;
-  browser: string;
-};
+  sourceCode: Dir
+  browser: string
+}
 
 const uploadFile = async (req: any) => {
   const data = await axios.post(endpoint, req).then((res) => {
-    return res.data;
-  });
+    return res.data
+  })
 
-  return data;
-};
+  return data
+}
 
-export default uploadFile;
+export default uploadFile
