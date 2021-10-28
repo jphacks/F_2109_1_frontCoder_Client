@@ -1,6 +1,7 @@
 import './App.css'
 import Login from './components/Login'
 import Competitions from './pages/competitions'
+import Score from './pages/score'
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/competitions">
             <Competitions />
+          </Route>
+          <Route exact path="/score">
+            <Score />
           </Route>
         </Switch>
       </BrowserRouter>
