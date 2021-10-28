@@ -4,6 +4,8 @@ import Login from './components/Login'
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
@@ -12,13 +14,16 @@ function App() {
     //<Login />
     // </Route>
     // </Router>
-    <BrowserRouter>
-      <Switch>
-        <Route path="/coding">
-          <Coding />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <>
+      <ToastContainer position="top-center" autoClose={1500} />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/coding">
+            <Coding />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
   )
 }
 
