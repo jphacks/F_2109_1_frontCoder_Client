@@ -1,6 +1,6 @@
 import './App.css'
 import Login from './components/Login'
-
+import Competitions from './pages/competitions'
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
@@ -20,6 +20,9 @@ function App() {
         <Switch>
           <Route path="/coding">
             <Coding />
+          </Route>
+          <Route exact path="/competitions">
+            <Competitions />
           </Route>
         </Switch>
       </BrowserRouter>
