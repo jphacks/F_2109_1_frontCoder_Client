@@ -1,16 +1,16 @@
-import { Chip } from "@material-ui/core";
+import { Chip } from '@material-ui/core'
 
 type Props = {
-  label: string;
-  color: string;
-};
+  label: string
+  color: string
+}
 
 const TechnologyChip = ({ label, color }: Props) => {
   return (
     <div>
-      <Chip label={label} style={{ backgroundColor: color, color: "white" }} />
+      <Chip label={label} style={{ backgroundColor: color, color: 'white' }} />
     </div>
-  );
-};
+  )
+}
 
-export default TechnologyChip;
+export default TechnologyChip

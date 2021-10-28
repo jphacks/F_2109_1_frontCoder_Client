@@ -1,4 +1,3 @@
 export type DetailParams = {
-  broadcastId: string;
-};
-
+  broadcastId: string
+}

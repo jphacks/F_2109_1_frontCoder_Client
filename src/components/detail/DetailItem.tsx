@@ -1,16 +1,16 @@
-import { Box, Grid, Typography } from "@material-ui/core";
-import React from "react";
-import styled from "styled-components";
+import { Box, Grid, Typography } from '@material-ui/core'
+import React from 'react'
+import styled from 'styled-components'
 
 type Props = {
-  item: string;
-  children: React.ReactNode;
-};
+  item: string
+  children: React.ReactNode
+}
 
 const Border = styled.div`
   padding-top: 20px;
   border-bottom: 1px solid #ccc;
-`;
+`
 
 const DetailItem = ({ item, children }: Props) => {
   return (
@@ -31,7 +31,7 @@ const DetailItem = ({ item, children }: Props) => {
         </Grid>
       </Grid>
     </Border>
-  );
-};
+  )
+}
 
-export default DetailItem;
+export default DetailItem
