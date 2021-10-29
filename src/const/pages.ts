@@ -12,7 +12,7 @@ type Pages = {
 export const pages: Pages = {
   problemDetail: {
     label: '問題詳細',
-    path: (id: string) => `/problem/${id}`,
+    path: (id: string) => `/problem/${id}/detail`,
   },
   problemCoding: {
     label: '問題回答',

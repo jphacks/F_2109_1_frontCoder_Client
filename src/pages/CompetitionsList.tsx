@@ -3,9 +3,14 @@ import { styled } from '@mui/material/styles'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import { useHistory } from 'react-router'
+import { pages } from '../const/pages'
+import { Problem } from '../types/schema'
+import { Box } from '@mui/system'
+import fetchProblems from '../api/fetchProblems'
 
 const TitleTypography = styled(Typography)({
   paddingTop: 24,
@@ -18,15 +23,29 @@ const CustamizedAccessTimeIcon = styled(AccessTimeIcon)({
 })
 
 export default function CompetitionsList(): JSX.Element {
-  const [problem, setProblem] = useState([])
+  const [problems, setProblems] = useState<Problem[]>([])
+  const history = useHistory()
   axios
     .get('v0.2.0/problem') //リクエストを飛ばすpath
     .then((response) => {
-      setProblem(response.data)
+      setProblems(response.data)
     }) //成功した場合、postsを更新する（then）
     .catch(() => {
       console.log('通信に失敗しました')
     })
+
+  useEffect(() => {
+    ;(async () => {
+      const _problems = await fetchProblems()
+      setProblems(_problems)
+    })()
+  }, [])
+
+  const seeProblemDetail = (id: string) => {
+    console.log(id)
+    history.push(pages.problemDetail.path(id))
+  }
+
   return (
     <div>
       <Container>
@@ -35,58 +54,24 @@ export default function CompetitionsList(): JSX.Element {
           Active Problems
         </TitleTypography>
         <Grid container spacing={2}>
-          {/* <Grid item xs={12} sm={6} md={4} lg={3}>
-            <ActionAreaCard
-              id="222"
-              title="2021 Kaggle Machine Learning & Data Science Survey"
-              description="The most comprehensive dataset available on the state of ML and data science"
-              image=""
-              createdAt={new Date(2021, 11, 15, 22, 30)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <ActionAreaCard
-              id="222"
-              title="2021 Kaggle Machine Learning & Data Science Survey"
-              description="The most comprehensive dataset available on the state of ML and data science"
-              image=""
-              createdAt={new Date(2021, 11, 15, 22, 30)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <ActionAreaCard
-              id="222"
-              title="2021 Kaggle Machine Learning & Data Science Survey"
-              description="The most comprehensive dataset available on the state of ML and data science"
-              image=""
-              createdAt={new Date(2021, 11, 15, 22, 30)}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <ActionAreaCard
-              id="222"
-              title="2021 Kaggle Machine Learning & Data Science Survey"
-              description="The most comprehensive dataset available on the state of ML and data science"
-              image=""
-              createdAt={new Date(2021, 11, 15, 22, 30)}
-            />
-          </Grid> */}
-          {problem.map(
+          {problems.map(
             (get: {
-              id: string
+              id: number
               image: string
               title: string
               description: string
-              createdAt: Date
+              created_at: Date
             }) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={get.id}>
-                <ActionAreaCard
-                  id={get.id}
-                  title={get.title}
-                  description={get.description}
-                  image={get.image}
-                  createdAt={get.createdAt}
-                />
+                <Box onClick={() => seeProblemDetail(String(get.id))}>
+                  <ActionAreaCard
+                    id={String(get.id)}
+                    title={get.title}
+                    description={get.description}
+                    image={get.image}
+                    createdAt={get.created_at}
+                  />
+                </Box>
               </Grid>
             )
           )}
