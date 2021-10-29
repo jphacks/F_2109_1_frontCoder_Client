@@ -21,21 +21,20 @@ function App(): JSX.Element {
             <Route path="/coding">
               <Coding />
             </Route>
-            <Route exact path="/competitions">
-              <Competitions />
-            </Route>
             <Route exact path="/problem">
               <Competitions />
             </Route>
             <Route path="/problem/:problemId">
-              <Route exact path="">
-                <Detail />
-              </Route>
-              <Route exact path="/coding">
-                <Coding />
-              </Route>
+              <Switch>
+                <Route exact path="">
+                  <Detail />
+                </Route>
+                <Route exact path="/coding">
+                  <Coding />
+                </Route>
+              </Switch>
             </Route>
-            <Route exact path="/score">
+            <Route exact path="/score/:imageURL/:imageScore">
               <Score />
             </Route>
           </Switch>
