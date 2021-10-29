@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Auth from './function/Auth'
 // Headerはauth情報が必要なため、authに格納.
-function App() :JSX.Element {
+function App(): JSX.Element {
   return (
     <>
       <ToastContainer position="top-center" autoClose={1500} />

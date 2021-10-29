@@ -20,7 +20,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  rules: {
+    'react/prop-types': ['off'],
+  },
   settings: {
     react: {
       version: '17', // React version. "detect" automatically picks the version you have installed.

@@ -13,7 +13,7 @@ class Auth extends React.Component {
 
   _isMounted = false //unmountを判断（エラー防止用）
 
-  componentDidMount = () => {
+  componentDidMount = (): void => {
     //mountされてる
     this._isMounted = true
 
@@ -41,11 +41,11 @@ class Auth extends React.Component {
     })
   }
 
-  componentWillUnmount = () => {
+  componentWillUnmount = (): void => {
     this._isMounted = false
   }
 
-  render() {
+  render(): JSX.Element {
     //チェックが終わってないなら（ローディング表示）
     if (!this.state.signinCheck) {
       return (
