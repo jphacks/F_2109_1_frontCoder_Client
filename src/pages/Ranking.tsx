@@ -55,7 +55,7 @@ export default function CompetitionsList(): JSX.Element {
   }, [])
   useEffect(() => {
     db.collection('score')
-      .doc('l9CfSdUDmWn5YdQIOlSc')
+      .doc('l9CfSdUDmWn5YdQIOlSc') /////////////////////////こここおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
       .get()
       .then((doc: any) => {
         if (doc.exists) {
