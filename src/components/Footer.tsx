@@ -8,6 +8,7 @@ import getScore from '../api/getScore'
 import closeProblem from '../api/closeProblem'
 import uploadFile from '../api/uploadFile'
 import { useHistory } from 'react-router'
+import StopWatch from './StopWatch'
 
 const Footer: VFC = () => {
   const history = useHistory()
@@ -78,6 +79,10 @@ const Footer: VFC = () => {
     history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
+  const runTest = async () => {
+    console.info('start test')
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -92,11 +97,18 @@ const Footer: VFC = () => {
         }}
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <StopWatch />
           <Button
             style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}
             onClick={submitCode}
           >
             提出
+          </Button>
+          <Button
+            style={{ backgroundColor: '#98fb98', color: '#FFFFFF' }}
+            onClick={runTest}
+          >
+            テスト
           </Button>
         </Toolbar>
       </AppBar>
