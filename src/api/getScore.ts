@@ -7,7 +7,12 @@ type Props = {
   url: string
 }
 
-const getScore = async (req: Props) => {
+type Response = {
+  imgScore: number
+  report: string
+}
+
+const getScore = async (req: Props): Promise<Response> => {
   const data = await axios.post(endpoint, req).then((res) => {
     return res.data
   })

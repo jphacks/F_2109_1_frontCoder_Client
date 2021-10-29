@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 
@@ -17,7 +17,7 @@ const CustamizedAccessTimeIcon = styled(AccessTimeIcon)({
   paddingRight: 16,
 })
 
-export default function CompetitionsList() {
+export default function CompetitionsList(): JSX.Element {
   const [problem, setProblem] = useState([])
   axios
     .get('v0.2.0/problem') //リクエストを飛ばすpath
@@ -79,7 +79,7 @@ export default function CompetitionsList() {
               description: string
               createdAt: Date
             }) => (
-              <Grid item xs={12} sm={6} md={4} lg={3}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={get.id}>
                 <ActionAreaCard
                   id={get.id}
                   title={get.title}

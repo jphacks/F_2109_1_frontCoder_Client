@@ -1,16 +1,13 @@
-import { VFC } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
+
 import Login from '../components/Login'
 import { styled } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import AccountCircle from '@mui/icons-material/AccountCircle'
-import Switch from '@mui/material/Switch'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import React from 'react'
 import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
@@ -21,7 +18,9 @@ const UsernameTypography = styled(Typography)({
   paddingLeft: 8,
 })
 
-export default function Header(props: { user: any }) {
+export default function Header(props: {
+  user: firebase.User | null
+}): JSX.Element {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -39,7 +38,7 @@ export default function Header(props: { user: any }) {
         toast.success('ログアウトしました')
         window.location.reload()
       })
-      .catch((error: any) => {
+      .catch((error) => {
         toast.error('ログアウトはさせないぜ' + error)
       })
   }

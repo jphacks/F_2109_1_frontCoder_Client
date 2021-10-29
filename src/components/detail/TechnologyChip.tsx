@@ -5,7 +5,7 @@ type Props = {
   color: string
 }
 
-const TechnologyChip = ({ label, color }: Props) => {
+const TechnologyChip = ({ label, color }: Props): JSX.Element => {
   return (
     <div>
       <Chip label={label} style={{ backgroundColor: color, color: 'white' }} />

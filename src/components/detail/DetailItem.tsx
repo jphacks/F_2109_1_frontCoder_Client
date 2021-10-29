@@ -12,7 +12,7 @@ const Border = styled.div`
   border-bottom: 1px solid #ccc;
 `
 
-const DetailItem = ({ item, children }: Props) => {
+const DetailItem = ({ item, children }: Props): JSX.Element => {
   return (
     <Border>
       <Grid

@@ -19,7 +19,7 @@ const ImageFrame = styled.img`
   object-fit: cover;
 `
 
-function Detail() {
+function Detail(): JSX.Element {
   const { problemId } = useParams<DetailParams>()
   const [problem, setProblem] = useState<Partial<Problem>>({})
 
@@ -38,8 +38,6 @@ function Detail() {
     { label: 'Sass', color: '#CB83DD' },
     { label: 'JavaScirpt', color: '#E9C136' },
   ]
-
-  const startProblem = () => {}
 
   return (
     <Box>
@@ -64,12 +62,8 @@ function Detail() {
           </DetailItem>
           <DetailItem item="使用技術">
             {technologies.map((tech) => (
-              <Box mx={0.3} my={0.5}>
-                <TechnologyChip
-                  label={tech.label}
-                  color={tech.color}
-                  key={tech.label}
-                />
+              <Box mx={0.3} my={0.5} key={tech.label}>
+                <TechnologyChip label={tech.label} color={tech.color} />
               </Box>
             ))}
           </DetailItem>
@@ -77,7 +71,6 @@ function Detail() {
             <Grid container justifyContent="center" alignItems="center">
               <Button
                 href="/search"
-                onClick={startProblem}
                 variant="contained"
                 color="primary"
                 size="large"
