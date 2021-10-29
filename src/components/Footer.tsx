@@ -8,7 +8,7 @@ import getScore from '../api/getScore'
 import closeProblem from '../api/closeProblem'
 import uploadFile from '../api/uploadFile'
 import { useHistory } from 'react-router'
-import { db } from '../config/firebase'
+import { db, auth } from '../config/firebase'
 
 const Footer: VFC = () => {
   const history = useHistory()
@@ -76,7 +76,9 @@ const Footer: VFC = () => {
       console.error(e)
     }
 
-    db.collection('/score/').add({ score: 22 })
+    const name = auth.currentUser?.displayName ?? `名無しさん`
+
+    db.collection('/score/').add({ user: name, score: imageScore })
     history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
