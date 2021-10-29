@@ -32,10 +32,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --fix --ignore-path .gitignore",
+    "lint": "eslint src/ --ignore-path .gitignore",
+    "lint:fix": "eslint src/ --fix --ignore-path .gitignore",
     "format": "prettier . --check --ignore-path .gitignore",
-    "format:fix": "prettier . --write --ignore-path .gitignore"
+    "format:fix": "prettier . --write --ignore-path .gitignore",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "browserslist": {
     "production": [
