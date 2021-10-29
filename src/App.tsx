@@ -1,32 +1,18 @@
 import './App.css'
-import Header from './components/Header'
-import { useEffect, useState } from 'react'
-import firebase from './config/firebase'
 import Competitions from './pages/CompetitionsList'
-import RequireLogin from './pages/RequireLogin'
 import Detail from './components/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-function App(): JSX.Element {
-  const [user, setUser] = useState(firebase.auth().currentUser)
-  useEffect(
-    () =>
-      firebase.auth().currentUser === null
-        ? firebase
-            .auth()
-            .onAuthStateChanged((user) => (user ? setUser(user) : <p></p>))
-        : setUser(firebase.auth().currentUser),
-    []
-  )
+import Auth from './function/Auth'
+// Headerはauth情報が必要なため、authに格納.
+function App() :JSX.Element {
   return (
     <>
       <ToastContainer position="top-center" autoClose={1500} />
-      <Header user={user} />
-      {user ? (
-        <BrowserRouter>
+      <BrowserRouter>
+        <Auth>
           <Switch>
             <Route path="/coding">
               <Coding />
@@ -41,10 +27,8 @@ function App(): JSX.Element {
               <Detail />
             </Route>
           </Switch>
-        </BrowserRouter>
-      ) : (
-        <RequireLogin />
-      )}
+        </Auth>
+      </BrowserRouter>
     </>
   )
 }
