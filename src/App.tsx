@@ -1,5 +1,8 @@
 import './App.css'
 import Login from './components/Login'
+import Header from './components/Header'
+import React, { useEffect, useState } from 'react'
+import firebase from './config/firebase'
 import Competitions from './pages/competitions'
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
@@ -8,14 +11,19 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
+  let [userid, setUser] = useState(null)
+  let [loginalert, setLoginalert] = useState(false)
+  useEffect(
+    () =>
+      firebase
+        .auth()
+        .onAuthStateChanged((user: any) => (user ? setUser(user) : <p></p>)),
+    []
+  )
   return (
-    // <Router>
-    // <Route exact path="/">
-    //<Login />
-    // </Route>
-    // </Router>
     <>
       <ToastContainer position="top-center" autoClose={1500} />
+      <Header user={userid} />
       <BrowserRouter>
         <Switch>
           <Route path="/coding">

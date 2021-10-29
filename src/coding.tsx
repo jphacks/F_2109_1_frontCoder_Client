@@ -12,7 +12,6 @@ import './coding.css'
 const Coding: VFC = () => {
   return (
     <div>
-      <Header />
       <main>
         <Box
           sx={{

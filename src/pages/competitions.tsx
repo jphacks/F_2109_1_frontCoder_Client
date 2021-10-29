@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import Header from '../components/Header'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
@@ -21,7 +21,7 @@ const CustamizedAccessTimeIcon = styled(AccessTimeIcon)({
 export default function Competitions() {
   const [problem, setProblem] = useState([])
   axios
-    .get('/v0.2.0/problem') //リクエストを飛ばすpath
+    .get('v0.2.0/problem') //リクエストを飛ばすpath
     .then((response) => {
       setProblem(response.data)
     }) //成功した場合、postsを更新する（then）
@@ -30,7 +30,6 @@ export default function Competitions() {
     })
   return (
     <div>
-      <Header />
       <Container>
         <TitleTypography variant="h4">
           <CustamizedAccessTimeIcon />
