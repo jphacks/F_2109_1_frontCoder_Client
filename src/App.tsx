@@ -28,7 +28,7 @@ function App(): JSX.Element {
               <Competitions />
             </Route>
             <Route path="/problem/:problemId">
-              <Route exact path="/">
+              <Route exact path="">
                 <Detail />
               </Route>
               <Route exact path="/coding">

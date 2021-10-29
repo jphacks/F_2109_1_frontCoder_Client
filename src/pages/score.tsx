@@ -42,7 +42,7 @@ const Footer: VFC = () => {
 const Score: VFC = () => {
   return (
     <Container>
-      <Header />
+      <Header user={null} />
       <Box
         sx={{
           width: '100%',
