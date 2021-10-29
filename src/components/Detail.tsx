@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from '@material-ui/core'
-import { useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import DetailItem from './detail/DetailItem'
 import { DetailParams } from '../types/params'
 import styled from 'styled-components'
@@ -8,6 +8,7 @@ import PreviewImage from '../images/thumbnail.png'
 import { Problem } from '../types/schema'
 import { useEffect, useState } from 'react'
 import fetchProblem from '../api/fetchProblem'
+import { pages } from '../const/pages'
 
 const Bold = styled.span`
   font-size: 40px;
@@ -22,6 +23,7 @@ const ImageFrame = styled.img`
 function Detail(): JSX.Element {
   const { problemId } = useParams<DetailParams>()
   const [problem, setProblem] = useState<Partial<Problem>>({})
+  const history = useHistory()
 
   useEffect(() => {
     ;(async () => {
@@ -38,6 +40,10 @@ function Detail(): JSX.Element {
     { label: 'Sass', color: '#CB83DD' },
     { label: 'JavaScirpt', color: '#E9C136' },
   ]
+
+  const startProblem = (): void => {
+    history.push(pages.problemCoding.path(problemId))
+  }
 
   return (
     <Box>
@@ -74,6 +80,7 @@ function Detail(): JSX.Element {
                 variant="contained"
                 color="primary"
                 size="large"
+                onClick={startProblem}
               >
                 START
               </Button>

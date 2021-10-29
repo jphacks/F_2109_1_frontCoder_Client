@@ -13,6 +13,9 @@ function App(): JSX.Element {
       <BrowserRouter>
         <Auth>
           <Switch>
+            <Route exact path="/">
+              トップページ
+            </Route>
             <Route path="/coding">
               <Coding />
             </Route>
@@ -23,10 +26,12 @@ function App(): JSX.Element {
               <Competitions />
             </Route>
             <Route path="/problem/:problemId">
-              <Detail />
-            </Route>
-            <Route path="/problem/:problemId/coding">
-              <Coding />
+              <Route exact path="/">
+                <Detail />
+              </Route>
+              <Route exact path="/coding">
+                <Coding />
+              </Route>
             </Route>
           </Switch>
         </Auth>
