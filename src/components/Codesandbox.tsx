@@ -1,5 +1,4 @@
-import React, { VFC } from 'react'
-import { AppBar } from '@mui/material'
+import { VFC } from 'react'
 
 const Codesandbox: VFC = () => {
   console.info()

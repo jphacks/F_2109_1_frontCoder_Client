@@ -73,10 +73,10 @@ export default function CompetitionsList() {
           </Grid> */}
           {problem.map(
             (get: {
-              id: String
-              image: String
-              title: String
-              description: String
+              id: string
+              image: string
+              title: string
+              description: string
               createdAt: Date
             }) => (
               <Grid item xs={12} sm={6} md={4} lg={3}>
