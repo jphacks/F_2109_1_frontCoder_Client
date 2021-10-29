@@ -8,6 +8,7 @@ import getScore from '../api/getScore'
 import closeProblem from '../api/closeProblem'
 import uploadFile from '../api/uploadFile'
 import { useHistory } from 'react-router'
+import { db } from '../config/firebase'
 
 const Footer: VFC = () => {
   const history = useHistory()
@@ -75,6 +76,7 @@ const Footer: VFC = () => {
       console.error(e)
     }
 
+    db.collection('/score/').add({ score: 22 })
     history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
