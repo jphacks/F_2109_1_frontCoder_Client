@@ -1,18 +1,15 @@
 import { VFC } from 'react'
 
-import DescriptionCard from './components/DescriptionCard'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import { AppBar, Box } from '@mui/material'
-import Codesandbox from './components/Codesandbox'
-import SampleView from './components/SampleView'
+import Footer from '../components/Footer'
+import { Box } from '@mui/material'
+import Codesandbox from '../components/Codesandbox'
+import SampleView from '../components/SampleView'
 
-import './coding.css'
+import '../css/coding.css'
 
 const Coding: VFC = () => {
   return (
     <div>
-      <Header />
       <main>
         <Box
           sx={{

@@ -1,34 +1,45 @@
-import './App.css'
-import Login from './components/Login'
-import Competitions from './pages/competitions'
 import Score from './pages/score'
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
-import Coding from './coding'
+import Competitions from './pages/CompetitionsList'
+import Detail from './components/Detail'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Coding from './pages/coding'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Auth from './function/Auth'
 
-function App() {
+// Headerはauth情報が必要なため、authに格納.
+function App(): JSX.Element {
   return (
-    // <Router>
-    // <Route exact path="/">
-    //<Login />
-    // </Route>
-    // </Router>
     <>
       <ToastContainer position="top-center" autoClose={1500} />
       <BrowserRouter>
-        <Switch>
-          <Route path="/coding">
-            <Coding />
-          </Route>
-          <Route exact path="/competitions">
-            <Competitions />
-          </Route>
-          <Route exact path="/score">
-            <Score />
-          </Route>
-        </Switch>
+        <Auth>
+          <Switch>
+            <Route exact path="/">
+              トップページ
+            </Route>
+            <Route path="/coding">
+              <Coding />
+            </Route>
+            <Route exact path="/competitions">
+              <Competitions />
+            </Route>
+            <Route exact path="/problem">
+              <Competitions />
+            </Route>
+            <Route path="/problem/:problemId">
+              <Route exact path="/">
+                <Detail />
+              </Route>
+              <Route exact path="/coding">
+                <Coding />
+              </Route>
+            </Route>
+            <Route exact path="/score">
+              <Score />
+            </Route>
+          </Switch>
+        </Auth>
       </BrowserRouter>
     </>
   )

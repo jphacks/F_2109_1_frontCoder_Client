@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -32,19 +31,19 @@ const MoneyBox = styled(Box)({
   alignItems: 'center',
 })
 export default function ActionAreaCard(props: {
-  id: String
-  image: String
-  title: String
-  description: String
+  id: string
+  image: string
+  title: string
+  description: string
   createdAt: Date
-}) {
+}): JSX.Element {
   return (
     <CustomCard>
       <CardActionArea href={'https://google.com/' + props.id}>
         <CardMedia
           component="img"
           height="140"
-          image="${props.image}"
+          image={props.image}
           alt="green iguana"
         />
         <CardContent>

@@ -1,17 +1,15 @@
-import React from 'react'
 import firebase from '../config/firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
 const uiConfig = {
   signInFlow: 'popup',
-  signInSuccessUrl: '/',
+  signInSuccessUrl: '/coding',
   signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
 }
 
-const Login = () => {
+const Login = (): JSX.Element => {
   return (
     <div>
-      <p>Please sign-in:</p>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
   )

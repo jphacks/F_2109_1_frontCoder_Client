@@ -1,15 +1,5 @@
-import React, { VFC } from 'react'
-import {
-  AppBar,
-  Box,
-  Divider,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-} from '@mui/material'
+import { VFC } from 'react'
+import { Box, Divider, Drawer, Toolbar } from '@mui/material'
 
 const DescriptionCard: VFC = () => {
   const drawerWidth = 240
