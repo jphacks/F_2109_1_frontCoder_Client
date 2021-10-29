@@ -5,9 +5,9 @@ const Codesandbox: VFC = () => {
 
   return (
     <iframe
-      src="https://codesandbox.io/embed/frontcoder-sample1-zsck5?fontsize=14&hidenavigation=1&theme=light"
+      src="https://codesandbox.io/embed/wen-ti-1-m2z2x?fontsize=14&hidenavigation=1&theme=light"
       className="iframe-coding"
-      title="FrontCoder-sample1"
+      title="FrontCoder 問題1"
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     ></iframe>
