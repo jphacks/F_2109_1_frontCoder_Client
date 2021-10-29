@@ -1,11 +1,7 @@
 import { VFC } from 'react'
-import Header from '../components/Header'
-// import Footer from './components/Footer'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
 import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button'
 import { Container } from '@mui/material'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -13,6 +9,7 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
+import { useParams } from 'react-router'
 import Paper from '@mui/material/Paper'
 
 const Footer: VFC = () => {
@@ -29,20 +26,23 @@ const Footer: VFC = () => {
           backgroundColor: '#FFFFFF',
         }}
       >
-        <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          {/* <Button style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}>
-            提出
-          </Button> */}
-        </Toolbar>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}></Toolbar>
       </AppBar>
     </Box>
   )
 }
 
+export type ScoreParams = {
+  imageURL: string
+  imageScore: string
+}
+
 const Score: VFC = () => {
+  const { imageURL, imageScore } = useParams<ScoreParams>()
+  const _imageURL = imageURL.replace(/~/g, '/')
+  console.log(_imageURL, imageScore)
   return (
     <Container>
-      <Header />
       <Box
         sx={{
           width: '100%',
@@ -77,16 +77,28 @@ const Score: VFC = () => {
               sx={{
                 margin: '0 auto',
                 maxWidth: '50%',
-                height: '400px',
-                backgroundColor: 'rgb(230, 230, 250)',
+                backgroundColor: 'rgb(230, 220, 210)',
                 textAlign: 'center',
+                borderRadius: '30px',
                 verticalAlign: 'middle',
               }}
             >
-              <i>HTML IMG here...</i>
+              <Box
+                sx={{
+                  fontSize: '30px',
+                  color: 'red',
+                  verticalAlign: 'middle',
+                  margin: 'auto 0',
+                  fontWeight: 'bold',
+                }}
+              >
+                <i>
+                  <a href={_imageURL}>採点結果画像をみる</a>
+                </i>
+              </Box>
             </Box>
             <Box sx={{ height: '50px' }}></Box>
-            <SpanningTable></SpanningTable>
+            <SpanningTable imageScore={imageScore}></SpanningTable>
             <Box sx={{ height: '150px' }}></Box>
           </Box>
         </Container>
@@ -99,10 +111,6 @@ const Score: VFC = () => {
 //////////////////////////////////////////
 
 const TAX_RATE = 0.07
-
-function ccyFormat(num: number) {
-  return `${num.toFixed(2)}`
-}
 
 function priceRow(qty: number, unit: number) {
   return qty * unit
@@ -134,7 +142,7 @@ const invoiceSubtotal = subtotal(rows)
 const invoiceTaxes = TAX_RATE * invoiceSubtotal
 const invoiceTotal = invoiceTaxes + invoiceSubtotal
 
-const SpanningTable = () => {
+const SpanningTable = (props: { imageScore: string }) => {
   return (
     <TableContainer
       component={Paper}
@@ -173,7 +181,7 @@ const SpanningTable = () => {
               align="right"
               sx={{ fontWeight: 'bold', fontSize: '20px' }}
             >
-              40
+              {props.imageScore}
             </TableCell>
           </TableRow>
           <TableRow>

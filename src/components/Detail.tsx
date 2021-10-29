@@ -76,7 +76,6 @@ function Detail(): JSX.Element {
           <Box mt={6}>
             <Grid container justifyContent="center" alignItems="center">
               <Button
-                href="/search"
                 variant="contained"
                 color="primary"
                 size="large"

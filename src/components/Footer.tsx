@@ -7,11 +7,10 @@ import Button from '@mui/material/Button'
 import getScore from '../api/getScore'
 import closeProblem from '../api/closeProblem'
 import uploadFile from '../api/uploadFile'
-
-// import htmlFile from "../../public/sample-code/index.html";
-//import cssFile from "../../public/sample-code/index.html";
+import { useHistory } from 'react-router'
 
 const Footer: VFC = () => {
+  const history = useHistory()
   const submitCode = async () => {
     console.info('/v0.1.0/upload')
     const req1 = {
@@ -36,10 +35,13 @@ const Footer: VFC = () => {
         ],
       },
     }
+    let imageURL = ''
+    let imageScore = 0
     try {
-      await uploadFile(req1).then((url) => {
+      await uploadFile(req1).then((_url) => {
         toast.success('ソースコードのアップロードが完了しました.')
-        console.info(url)
+        imageURL = _url.url
+        console.info(imageURL)
       })
     } catch (e) {
       console.error(e)
@@ -53,6 +55,7 @@ const Footer: VFC = () => {
       await getScore(req2).then((imgScore) => {
         toast.success('UIテストが完了しました.')
         console.info(imgScore)
+        imageScore = imgScore.imgScore
       })
     } catch (e) {
       console.error(e)
@@ -71,6 +74,8 @@ const Footer: VFC = () => {
     } catch (e) {
       console.error(e)
     }
+
+    history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
   return (
