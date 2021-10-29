@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import React, { useState } from 'react'
 import axios from 'axios'
-import Header from '../components/Header'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 
 const TitleTypography = styled(Typography)({
@@ -18,7 +17,7 @@ const CustamizedAccessTimeIcon = styled(AccessTimeIcon)({
   paddingRight: 16,
 })
 
-export default function Competitions() {
+export default function CompetitionsList() {
   const [problem, setProblem] = useState([])
   axios
     .get('v0.2.0/problem') //リクエストを飛ばすpath

@@ -1,9 +1,9 @@
 import './App.css'
-import Login from './components/Login'
 import Header from './components/Header'
 import React, { useEffect, useState } from 'react'
 import firebase from './config/firebase'
-import Competitions from './pages/competitions'
+import Competitions from './pages/CompetitionsList'
+import RequireLogin from './pages/RequireLogin'
 // import { BrowserRouter as Router, Route } from "react-router-dom";
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Coding from './coding'
@@ -24,16 +24,20 @@ function App() {
     <>
       <ToastContainer position="top-center" autoClose={1500} />
       <Header user={userid} />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/coding">
-            <Coding />
-          </Route>
-          <Route exact path="/competitions">
-            <Competitions />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      {!userid ? (
+        <RequireLogin />
+      ) : (
+        <BrowserRouter>
+          <Switch>
+            <Route path="/coding">
+              <Coding />
+            </Route>
+            <Route exact path="/competitions">
+              <Competitions />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      )}
     </>
   )
 }
