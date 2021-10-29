@@ -37,7 +37,7 @@
     "format": "prettier . --check --ignore-path .gitignore",
     "format:fix": "prettier . --write --ignore-path .gitignore",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run --spec cypress/integration/index.spec.js"
   },
   "browserslist": {
     "production": [
