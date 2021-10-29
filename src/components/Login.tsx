@@ -7,7 +7,7 @@ const uiConfig = {
   signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
 }
 
-const Login = () => {
+const Login = (): JSX.Element => {
   return (
     <div>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />

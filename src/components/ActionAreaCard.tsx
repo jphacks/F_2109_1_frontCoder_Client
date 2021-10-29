@@ -36,7 +36,7 @@ export default function ActionAreaCard(props: {
   title: string
   description: string
   createdAt: Date
-}) {
+}): JSX.Element {
   return (
     <CustomCard>
       <CardActionArea href={'https://google.com/' + props.id}>

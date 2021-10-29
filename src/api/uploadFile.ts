@@ -1,17 +1,17 @@
 import axios from 'axios'
 import { API_URL } from './endpoint'
-import { Dir } from '../types/schema'
 
 const endpoint = `${API_URL}/v0.1.0/upload`
 
-type Props = {
-  sourceCode: Dir
-  browser: string
+type Response = {
+  url: string
 }
 
-const uploadFile = async (req: any) => {
+// HACK: 構造が再帰的なため、一旦 any で凌ぐ
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+const uploadFile = async (req: any): Promise<Response> => {
   const data = await axios.post(endpoint, req).then((res) => {
-    return res.data as Props
+    return res.data
   })
 
   return data

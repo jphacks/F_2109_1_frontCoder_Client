@@ -8,7 +8,7 @@ type Props = {
   id: string
 }
 
-const fetchProblem = async (req: Props) => {
+const fetchProblem = async (req: Props): Promise<Problem> => {
   const data = await axios.post(endpoint, req).then((res) => {
     return res.data.problem as Problem
   })

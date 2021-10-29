@@ -17,7 +17,9 @@ const UsernameTypography = styled(Typography)({
   paddingLeft: 8,
 })
 
-export default function Header(props: { user: any }) {
+export default function Header(props: {
+  user: firebase.User | null
+}): JSX.Element {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -35,7 +37,7 @@ export default function Header(props: { user: any }) {
         toast.success('ログアウトしました')
         window.location.reload()
       })
-      .catch((error: any) => {
+      .catch((error) => {
         toast.error('ログアウトはさせないぜ' + error)
       })
   }

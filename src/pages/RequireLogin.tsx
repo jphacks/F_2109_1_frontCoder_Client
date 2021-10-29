@@ -1,8 +1,6 @@
 import { styled } from '@mui/material/styles'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import Login from '../components/Login'
 
 const TitleTypography = styled(Typography)({
   paddingTop: 24,
@@ -10,7 +8,7 @@ const TitleTypography = styled(Typography)({
   paddingBottom: 32,
 })
 
-export default function RequireLogin() {
+export default function RequireLogin(): JSX.Element {
   return (
     <div>
       <Container>
