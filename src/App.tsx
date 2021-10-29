@@ -1,8 +1,7 @@
-import './App.css'
 import Competitions from './pages/CompetitionsList'
 import Detail from './components/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Coding from './coding'
+import Coding from './pages/coding'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Auth from './function/Auth'
@@ -25,6 +24,9 @@ function App(): JSX.Element {
             </Route>
             <Route path="/problem/:problemId">
               <Detail />
+            </Route>
+            <Route path="/problem/:problemId/coding">
+              <Coding />
             </Route>
           </Switch>
         </Auth>

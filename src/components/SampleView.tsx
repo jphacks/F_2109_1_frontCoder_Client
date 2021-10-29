@@ -1,7 +1,7 @@
 import { VFC } from 'react'
 import { Box } from '@mui/material'
 import { useEffect } from 'react'
-import '../coding.css'
+import '../css/coding.css'
 
 const SampleView: VFC = () => {
   useEffect(() => {

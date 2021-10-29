@@ -1,11 +1,11 @@
 import { VFC } from 'react'
 
-import Footer from './components/Footer'
+import Footer from '../components/Footer'
 import { Box } from '@mui/material'
-import Codesandbox from './components/Codesandbox'
-import SampleView from './components/SampleView'
+import Codesandbox from '../components/Codesandbox'
+import SampleView from '../components/SampleView'
 
-import './coding.css'
+import '../css/coding.css'
 
 const Coding: VFC = () => {
   return (
