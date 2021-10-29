@@ -14,14 +14,7 @@ export default function RequireLogin() {
   return (
     <div>
       <Container>
-        <TitleTypography variant="h4">
-          ログインしてくれ(仮) ログインしてくれ(仮) ログインしてくれ(仮)
-          ログインしてくれ(仮) ログインしてくれ(仮) ログインしてくれ(仮)
-          ログインしてくれ(仮) ログインしてくれ(仮) ログインしてくれ(仮)
-          ログインしてくれ(仮) ログインしてくれ(仮) ログインしてくれ(仮)
-          ログインしてくれ(仮) ログインしてくれ(仮) ログインしてくれ(仮)
-          ログインしてくれ(仮) ログインしてくれ(仮) ログインしてくれ(仮)
-        </TitleTypography>
+        <TitleTypography variant="h4"></TitleTypography>
       </Container>
     </div>
   )
