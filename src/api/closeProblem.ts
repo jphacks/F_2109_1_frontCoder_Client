@@ -9,7 +9,8 @@ type Props = {
 }
 
 // TODO: 後で使うやつ？用途ど忘れしたので後で確認 by yoshikatsu
-const closeProblem = async (req: Props) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+const closeProblem = async (req: Props): Promise<any> => {
   const data = await axios.post(endpoint, req).then((res) => {
     return res.data
   })
