@@ -16,23 +16,16 @@ function App(): JSX.Element {
         <Auth>
           <Switch>
             <Route exact path="/">
-              トップページ
+              <Competitions />
             </Route>
             <Route path="/coding">
               <Coding />
             </Route>
-            <Route exact path="/problem">
-              <Competitions />
+            <Route path="/problem/:problemId/detail">
+              <Detail />
             </Route>
-            <Route path="/problem/:problemId">
-              <Switch>
-                <Route exact path="">
-                  <Detail />
-                </Route>
-                <Route exact path="/coding">
-                  <Coding />
-                </Route>
-              </Switch>
+            <Route path="/problem/:problemId/coding">
+              <Coding />
             </Route>
             <Route exact path="/score/:imageURL/:imageScore">
               <Score />
