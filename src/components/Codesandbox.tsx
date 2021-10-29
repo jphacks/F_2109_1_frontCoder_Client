@@ -1,11 +1,12 @@
 import { VFC } from 'react'
 import { useLocation } from 'react-router'
+import getID from '../utils/getID'
 
 import switchID from '../utils/switchID'
 
 const Codesandbox: VFC = () => {
-  const path = useLocation()
-  const id: number = path.pathname.slice(-8, -6)
+  const path = useLocation().pathname
+  const id = getID(path)
   console.info(path)
   console.info(id)
 
