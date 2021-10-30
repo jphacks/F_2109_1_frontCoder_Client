@@ -9,6 +9,7 @@ import closeProblem from '../api/closeProblem'
 import uploadFile from '../api/uploadFile'
 import { useHistory } from 'react-router'
 import StopWatch from './StopWatch'
+import getCode from '../utils/getCode'
 
 const Footer: VFC = () => {
   const history = useHistory()
@@ -81,6 +82,10 @@ const Footer: VFC = () => {
 
   const runTest = async () => {
     console.info('start test')
+    console.info('get Code!!!')
+    const code = getCode()
+    const tag_num = runTest()
+    toast.error('画像タグの数が足りません')
   }
 
   return (
