@@ -6,14 +6,13 @@ import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box'
-
 const CustomCard = styled(Card)({
   borderRadius: 16,
 })
 
-// const MoneyTypography = styled(Typography)({
-//   fontWeight: 800,
-// });
+const MoneyTypography = styled(Typography)({
+  fontWeight: 600,
+})
 
 const TitleTypography = styled(Typography)({
   fontWeight: 500,
@@ -43,32 +42,38 @@ export default function ActionAreaCard(props: {
         <CardMedia
           component="img"
           height="140"
-          image={props.image}
+          image={`/problem/p${props.id}.png`}
           alt="green iguana"
         />
         <CardContent>
           <TitleTypography gutterBottom variant="h5">
             {props.title}
           </TitleTypography>
-          <Typography variant="body2" color="text.secondary">
-            {props.description}
-          </Typography>
+          <div className="detailcontainer">
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              className="detailText"
+            >
+              {props.description}
+            </Typography>
+          </div>
           <CardDivider light />
           <MoneyBox>
-            {/* <MoneyTypography variant="h6" display="inline">
-              $20,000
-            </MoneyTypography> */}
+            <MoneyTypography variant="h6" display="inline">
+              Training
+            </MoneyTypography>
             <Typography
               variant="body1"
               color="text.secondary"
               display="inline"
               align="right"
             >
-              {console.log(props.createdAt)}
-              {Math.round(
+              {/* {Math.round(
                 (props.createdAt.getTime() - new Date().getTime()) /
                   (1000 * 60 * 60 * 24)
-              )}{' '}
+              )} */}
+              {10}
               days to go
             </Typography>
           </MoneyBox>

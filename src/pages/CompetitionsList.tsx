@@ -28,15 +28,17 @@ const CustamizedAccessTimeIcon = styled(AccessTimeIcon)({
 export default function CompetitionsList(): JSX.Element {
   const [problems, setProblems] = useState<Problem[]>([])
   const history = useHistory()
-  axios
-    .get('http://54.95.10.72:3000/v0.2.0/problem') //リクエストを飛ばすpath
-    .then((response) => {
-      setProblems(response.data)
-    }) //成功した場合、postsを更新する（then）
-    .catch(() => {
-      console.log('通信に失敗しました')
-    })
-
+  useEffect(() => {
+    axios
+      .get('http://54.95.10.72:3000/v0.2.0/problem') //リクエストを飛ばすpath
+      .then((response) => {
+        console.log(response.data['problem'])
+        setProblems(response.data['problem'])
+      }) //成功した場合、postsを更新する（then）
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }, [])
   useEffect(() => {
     ;(async () => {
       const _problems = await fetchProblems()
@@ -66,12 +68,12 @@ export default function CompetitionsList(): JSX.Element {
               created_at: Date
             }) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={get.id}>
-                <Box onClick={() => seeProblemDetail(String(get.id))}>
+                <Box mb={2} onClick={() => seeProblemDetail(String(get.id))}>
                   <ActionAreaCard
                     id={String(get.id)}
                     title={get.title}
                     description={get.description}
-                    image={get.image}
+                    image={String(get.id)}
                     createdAt={get.created_at}
                   />
                 </Box>

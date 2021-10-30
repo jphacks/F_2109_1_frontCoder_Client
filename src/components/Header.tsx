@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Login from '../components/Login'
+import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -18,6 +19,10 @@ import logo from './logo.png'
 
 const UsernameTypography = styled(Typography)({
   paddingLeft: 8,
+})
+
+const CustmizeButton = styled(Button)({
+  color: '#464646',
 })
 
 export default function Header(props: {
@@ -66,18 +71,19 @@ export default function Header(props: {
             <Login />
           ) : (
             <div>
-              <IconButton
+              <CustmizeButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
+                color="secondary"
                 onClick={handleMenu}
               >
                 <AccountCircle />
                 <UsernameTypography variant="h6">
                   {props.user.displayName}
                 </UsernameTypography>
-              </IconButton>
+              </CustmizeButton>
               {auth.currentUser?.displayName ? null : '名無しさん'}
               <Menu
                 id="menu-appbar"
