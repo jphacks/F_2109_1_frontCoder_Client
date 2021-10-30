@@ -62,3 +62,6 @@ code {
   overflow: hidden;
   width: 100%;
 }
+.w-0 {
+  width: 40%;
+}
