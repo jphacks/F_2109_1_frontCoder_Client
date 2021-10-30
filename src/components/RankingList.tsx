@@ -167,19 +167,21 @@ export default function RankingList(props: any): JSX.Element {
                 page * rowsPerPage + rowsPerPage
               )
             : props.list
-          ).map((row: any, index: any) => (
-            <TableRow key={row.user}>
-              <StyledTableCell align="center" className="ranking">
-                {index + 1}
-              </StyledTableCell>
-              <StyledTableCell align="center" className="ranking">
-                {row.user}
-              </StyledTableCell>
-              <StyledTableCell align="center" className="ranking">
-                {row.score}
-              </StyledTableCell>
-            </TableRow>
-          ))}
+          ).map((row: any) => {
+            return (
+              <TableRow key={row.user}>
+                <StyledTableCell align="center" className="ranking">
+                  {props.onlyscore.indexOf(row.score) + 1}
+                </StyledTableCell>
+                <StyledTableCell align="center" className="ranking">
+                  {row.user}
+                </StyledTableCell>
+                <StyledTableCell align="center" className="ranking">
+                  {row.score}
+                </StyledTableCell>
+              </TableRow>
+            )
+          })}
         </TableBody>
         <TableFooter>
           <StyledTableRow>

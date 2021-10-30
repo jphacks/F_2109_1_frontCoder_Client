@@ -7,6 +7,7 @@ import { db } from '../config/firebase'
 import { useEffect, useState } from 'react'
 import RankingList from '../components/RankingList'
 import GroupIcon from '@mui/icons-material/Group'
+import { MyContext } from '../function/Auth'
 
 const TitleTypography = styled(Typography)({
   paddingTop: 24,
@@ -28,12 +29,14 @@ const SubtitleTypography = styled(Typography)({
   display: 'inline',
 })
 
-export default function CompetitionsList(): JSX.Element {
+export default function CompetitionsList(props: any): JSX.Element {
   const [score, setScore] = useState(0)
+  const [user, setUser]: any = useState('')
   const [ranking, setRanking] = useState([])
   const [scorelist, setScoreList]: any = useState([])
   const tmp: any = []
   const scoretmp: any = []
+  console.log(user)
   // ranking
   useEffect(() => {
     db.collection('score')
@@ -53,18 +56,21 @@ export default function CompetitionsList(): JSX.Element {
         console.log('Error getting documents: ', error)
       })
   }, [])
-  useEffect(() => {
+  if (user) {
+    // useEffect(() => {
     db.collection('score')
-      .doc('l9CfSdUDmWn5YdQIOlSc') /////////////////////////こここおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+      .doc(user)
       .get()
       .then((doc: any) => {
         if (doc.exists) {
           setScore(doc.data()['score']) // 1 問題id 0 0番目スコア
         }
       })
-  }, [])
+    // }, [])
+  }
   return (
     <div>
+      <MyContext.Consumer>{(value) => setUser(value)}</MyContext.Consumer>
       <Container>
         <TitleTypography variant="h4" className="futura">
           <CustamizedGroupIcon />
@@ -117,7 +123,8 @@ export default function CompetitionsList(): JSX.Element {
               </Grid>
             </Grid>
             <Grid item xs>
-              <RankingList list={ranking} />
+              {console.log(scorelist)}
+              <RankingList list={ranking} onlyscore={scorelist} />
             </Grid>
           </Grid>
         </Box>
