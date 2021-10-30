@@ -116,12 +116,11 @@ const Score: VFC = () => {
                 <SpanningTable imageScore={imageScore}></SpanningTable>
               </Grid>
             </Grid>
-            {/* <img src={_imageURL} />  数値入るとこれ*/}
-            {/* でもいまは来ないので仮にこれで */}
-            <Box mt={3}>
-              <img
+            <Box my={3}>
+              <iframe
                 className="w-100"
-                src="https://i.ibb.co/f1L5mJW/2021-10-29-13-57-23.png"
+                src={_imageURL}
+                style={{ height: '700px' }}
               />
             </Box>
           </Box>

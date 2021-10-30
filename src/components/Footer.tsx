@@ -54,6 +54,7 @@ const Footer: VFC = () => {
     }
     let imageURL = ''
     let imageScore = 0
+    let reportUrl = ''
     try {
       await uploadFile(req1).then((_url) => {
         toast.success('ソースコードのアップロードが完了しました.')
@@ -74,10 +75,11 @@ const Footer: VFC = () => {
     }
     try {
       console.log(imageURL)
-      await getScore(req2).then((imgScore) => {
+      await getScore(req2).then((res) => {
         toast.success('UIテストが完了しました.')
-        console.info(imgScore)
-        imageScore = imgScore.imgScore
+        console.info(res)
+        imageScore = res.imgScore
+        reportUrl = res.report
       })
     } catch (e) {
       console.log('ui test error')
@@ -104,7 +106,7 @@ const Footer: VFC = () => {
       .collection('/score/')
       .add({ user: name, score: standardizationImageScore })
     history.push(
-      `/score/${imageURL.replace(/\//g, '~')}/${standardizationImageScore}`
+      `/score/${reportUrl.replace(/\//g, '~')}/${standardizationImageScore}`
     )
   }
 
