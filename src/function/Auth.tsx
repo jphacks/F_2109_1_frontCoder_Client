@@ -9,6 +9,7 @@ class Auth extends React.Component {
     signinCheck: false, //ログインチェックが完了してるか
     signedIn: false, //ログインしてるか
     user: null,
+    uid: null,
   }
 
   _isMounted = false //unmountを判断（エラー防止用）
@@ -26,6 +27,7 @@ class Auth extends React.Component {
             signinCheck: true,
             signedIn: true,
             user: user,
+            uid: user.uid,
           })
         }
       } else {
@@ -44,7 +46,6 @@ class Auth extends React.Component {
   componentWillUnmount = (): void => {
     this._isMounted = false
   }
-
   render(): JSX.Element {
     //チェックが終わってないなら（ローディング表示）
     if (!this.state.signinCheck) {
@@ -60,8 +61,10 @@ class Auth extends React.Component {
       //サインインしてるとき（そのまま表示）
       return (
         <>
-          <Header user={this.state.user} />
-          {this.props.children}
+          <MyContext.Provider value={this.state.uid!}>
+            <Header user={this.state.user} />
+            {this.props.children}
+          </MyContext.Provider>
         </>
       )
     } else {
@@ -75,5 +78,5 @@ class Auth extends React.Component {
     }
   }
 }
-
+export const MyContext = React.createContext('')
 export default Auth

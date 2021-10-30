@@ -3,6 +3,7 @@ import Competitions from './pages/CompetitionsList'
 import Detail from './components/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Coding from './pages/coding'
+import Ranking from './pages/Ranking'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Auth from './function/Auth'
@@ -17,6 +18,9 @@ function App(): JSX.Element {
           <Switch>
             <Route exact path="/">
               <Competitions />
+            </Route>
+            <Route exact path="/ranking">
+              <Ranking />
             </Route>
             <Route path="/coding">
               <Coding />
