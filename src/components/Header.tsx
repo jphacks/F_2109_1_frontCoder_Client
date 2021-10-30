@@ -12,6 +12,8 @@ import MenuItem from '@mui/material/MenuItem'
 import Menu from '@mui/material/Menu'
 import firebase from '../config/firebase'
 import { toast } from 'react-toastify'
+import { auth } from '../config/firebase'
+import CodeOffIcon from '@mui/icons-material/CodeOff'
 
 const UsernameTypography = styled(Typography)({
   paddingLeft: 8,
@@ -57,8 +59,16 @@ export default function Header(props: {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            FrontCoder
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, fontWeight: '600', fontSize: '30px' }}
+          >
+            <CodeOffIcon
+              sx={{ fontWeight: 'bold', fontSize: '40px' }}
+            ></CodeOffIcon>
+            <span style={{ color: 'rgb(194,72,69)' }}>F</span>
+            ront <span style={{ color: 'rgb(194,72,69)' }}>C</span>oder
           </Typography>
           {!props.user ? (
             <Login />
@@ -77,6 +87,7 @@ export default function Header(props: {
                   {props.user.displayName}
                 </UsernameTypography>
               </IconButton>
+              {auth.currentUser?.displayName ?? '名無しさん'}
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
