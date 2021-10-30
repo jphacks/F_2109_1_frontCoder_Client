@@ -84,11 +84,15 @@ const Footer: VFC = () => {
 export type ScoreParams = {
   imageURL: string
   imageScore: string
+  testScore: string
 }
 
 const Score: VFC = () => {
-  const { imageURL, imageScore } = useParams<ScoreParams>()
+  const { imageURL, imageScore, testScore } = useParams<ScoreParams>()
   const _imageURL = imageURL.replace(/~/g, '/')
+  const imgScore = Number(imageScore) / 2
+  const tstScore = Number(testScore) / 2
+  const score = imgScore + tstScore
   return (
     <>
       <Container>
@@ -105,7 +109,7 @@ const Score: VFC = () => {
                     Score
                   </Typography>
                   <StyledScore variant="h2" align="center">
-                    73
+                    {score}
                     <Typography variant="body1" component="span">
                       /100
                     </Typography>
@@ -113,7 +117,10 @@ const Score: VFC = () => {
                 </StyledBox>
               </Grid>
               <Grid item xs>
-                <SpanningTable imageScore={imageScore}></SpanningTable>
+                <SpanningTable
+                  imageScore={imgScore}
+                  testScore={tstScore}
+                ></SpanningTable>
               </Grid>
             </Grid>
             <Box my={3}>
@@ -162,7 +169,7 @@ const invoiceSubtotal = subtotal(rows)
 const invoiceTaxes = TAX_RATE * invoiceSubtotal
 const invoiceTotal = invoiceTaxes + invoiceSubtotal
 
-const SpanningTable = (props: { imageScore: string }) => {
+const SpanningTable = (props: { imageScore: number; testScore: number }) => {
   return (
     <StyledTable>
       <Table sx={{ minWidth: 350 }} aria-label="spanning table">
@@ -188,7 +195,7 @@ const SpanningTable = (props: { imageScore: string }) => {
               コード
             </StyledTableCell>
             <StyledTableCell align="center" className="ranking_number">
-              33
+              {props.testScore}
             </StyledTableCell>
           </StyledTableRow>
         </TableHead>

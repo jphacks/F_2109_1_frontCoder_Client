@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { useState, VFC } from 'react'
 import { toast } from 'react-toastify'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -22,9 +22,10 @@ const Footer: VFC = () => {
   console.log('pasy')
   console.log(path)
   console.log(id)
+  const [testscore, setTestScore] = useState(0)
 
   const submitCode = async () => {
-    console.info('/v0.1.0/upload')
+    console.info('/v0.2.0/upload')
     const dir = {
       source_code: {
         dirName: '/',
@@ -67,7 +68,7 @@ const Footer: VFC = () => {
     }
 
     toast.success('UIテスト中です. これには十数秒かかります.')
-    console.info('/v0.1.0/imgScore')
+    console.info('/v0.2.0/imgScore')
     const req2 = {
       userId: auth.currentUser.uid,
       problemImageName: `p${id}`,
@@ -102,11 +103,13 @@ const Footer: VFC = () => {
 
     const name = auth.currentUser?.displayName ?? `名無しさん`
     const standardizationImageScore = Math.round(imageScore * 100)
-    await db
-      .collection('/score/')
-      .add({ user: name, score: standardizationImageScore })
+    const score = (standardizationImageScore + testscore) / 2
+    await db.collection('/score/').add({ user: name, score: score })
     history.push(
-      `/score/${reportUrl.replace(/\//g, '~')}/${standardizationImageScore}`
+      `/score/${reportUrl.replace(
+        /\//g,
+        '~'
+      )}/${standardizationImageScore}/${testscore}`
     )
   }
 
@@ -118,8 +121,10 @@ const Footer: VFC = () => {
     //if (tag_num === 2) {
     if (id === 1) {
       toast.success('テスト成功')
+      setTestScore(100)
     } else {
       toast.error('画像タグの数が足りません')
+      setTestScore(50)
     }
     //}
   }

@@ -49,7 +49,7 @@ function App(): JSX.Element {
               <Route path="/problem/:problemId/coding">
                 <Coding />
               </Route>
-              <Route exact path="/score/:imageURL/:imageScore">
+              <Route exact path="/score/:imageURL/:imageScore/:testScore">
                 <Score />
               </Route>
             </Switch>
