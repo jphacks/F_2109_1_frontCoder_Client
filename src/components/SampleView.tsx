@@ -3,10 +3,15 @@ import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import '../css/coding.css'
 import getSandBoxImage from '../utils/getSandBoxImage'
-import log from '../../public/problem/p1.png'
-
+import { useLocation } from 'react-router-dom'
+import getID from '../utils/getID'
 const SampleView: VFC = () => {
   const [preview, setPreview] = useState('')
+  const path = useLocation().pathname
+  const id = getID(path)
+  console.log('pasy')
+  console.log(path)
+  console.log(id)
   useEffect(() => {
     console.info('プレビュー読み込み')
     /*const addData = {
@@ -16,9 +21,8 @@ const SampleView: VFC = () => {
       return res.data;
     });
     console.info(message);*/
-    setPreview(getSandBoxImage(0))
+    //setPreview(getSandBoxImage(0))
   }, [])
-
   return (
     <div>
       <Box
@@ -31,11 +35,10 @@ const SampleView: VFC = () => {
         }}
       >
         <div className="preview">
-          <img src={`/problem/p1.png`} alt="お手本" />
+          <img src={`/problem/p${id}.png`} alt="お手本" />
         </div>
       </Box>
     </div>
   )
 }
-
 export default SampleView
