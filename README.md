@@ -1,19 +1,12 @@
 # Front Coder フロントエンド
 
-サーバーサイド及び背景についてはこちら
+サーバーサイド及び背景については[こちら](https://github.com/jphacks/F_2109）
 
-## 概要
+## アーキテクチャ図
 
-アーキテクチャ図とか貼りたい
-https://app.cloudskew.com/viewer/c1b5c65b-eadf-4afa-90e6-f3e4daf3247c
+![architecture](https://user-images.githubusercontent.com/42875682/139541609-f6cd5596-700c-402f-a81a-6246da6546e6.png)
 
-## 情報
-
-```
-公開済みURL :  ここに貼って。
-```
-
-## 実装方法
+## 環境構築
 
 以下のコードを実行すると自動でページが開きます。
 
@@ -21,10 +14,6 @@ https://app.cloudskew.com/viewer/c1b5c65b-eadf-4afa-90e6-f3e4daf3247c
 git clone https://github.com/jphacks/F_2109_1_frontCoder_Client
 npm run start
 ```
-
-## 使用推奨デバイス
-
-- PC
 
 ## 使用言語
 
@@ -35,7 +24,6 @@ npm run start
 - Material ui
 - Firebase Auth
 - Firebase FireStore
-- CodeSandBox API
 
 ## 概要
 
@@ -47,116 +35,6 @@ npm run start
 具体的にデザインは////////////////////.
 コードは////////////////////////////.
 このようにして判断しています。
-
-## ファイル構造の説明
-
-```
-.
-├── README.md
-├── amplify
-│   ├── README.md
-│   ├── backend
-│   │   ├── backend-config.json
-│   │   ├── hosting
-│   │   │   └── amplifyhosting
-│   │   │       └── amplifyhosting-template.json
-│   │   └── tags.json
-│   ├── cli.json
-│   ├── hooks
-│   │   └── README.md
-│   └── team-provider-info.json
-├── cypress
-│   ├── fixtures
-│   │   └── example.json
-│   ├── integration
-│   │   ├── 1-getting-started
-│   │   │   └── todo.spec.js
-│   │   ├── 2-advanced-examples
-│   │   │   ├── actions.spec.js
-│   │   │   ├── aliasing.spec.js
-│   │   │   ├── assertions.spec.js
-│   │   │   ├── connectors.spec.js
-│   │   │   ├── cookies.spec.js
-│   │   │   ├── cypress_api.spec.js
-│   │   │   ├── files.spec.js
-│   │   │   ├── local_storage.spec.js
-│   │   │   ├── location.spec.js
-│   │   │   ├── misc.spec.js
-│   │   │   ├── navigation.spec.js
-│   │   │   ├── network_requests.spec.js
-│   │   │   ├── querying.spec.js
-│   │   │   ├── spies_stubs_clocks.spec.js
-│   │   │   ├── traversal.spec.js
-│   │   │   ├── utilities.spec.js
-│   │   │   ├── viewport.spec.js
-│   │   │   ├── waiting.spec.js
-│   │   │   └── window.spec.js
-│   │   └── index.spec.js
-│   ├── plugins
-│   │   └── index.js
-│   └── support
-│       ├── commands.js
-│       └── index.js
-├── cypress.json
-├── package-lock.json
-├── package.json
-├── public
-├── src
-│   ├── App.tsx
-│   ├── api
-│   │   ├── closeProblem.ts
-│   │   ├── endpoint.ts
-│   │   ├── fetchProblem.ts
-│   │   ├── fetchProblems.ts
-│   │   ├── getScore.ts
-│   │   └── uploadFile.ts
-│   ├── components
-│   │   ├── ActionAreaCard.tsx
-│   │   ├── Codesandbox.tsx
-│   │   ├── DescriptionCard.tsx
-│   │   ├── Detail.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Header.tsx
-│   │   ├── Login.tsx
-│   │   ├── RankingList.tsx
-│   │   ├── SampleView.tsx
-│   │   ├── StopWatch.tsx
-│   │   ├── detail
-│   │   │   ├── DetailItem.tsx
-│   │   │   └── TechnologyChip.tsx
-│   │   ├── icon.png
-│   │   └── logo.png
-│   ├── config
-│   │   └── firebase.ts
-│   ├── const
-│   │   └── pages.ts
-│   ├── css
-│   │   ├── coding.css
-│   │   └── index.css
-│   ├── function
-│   │   └── Auth.tsx
-│   ├── images
-│   │   └── thumbnail.png
-│   ├── index.tsx
-│   ├── logo.svg
-│   ├── pages
-│   │   ├── CompetitionsList.tsx
-│   │   ├── Ranking.tsx
-│   │   ├── RequireLogin.tsx
-│   │   ├── coding.tsx
-│   │   └── score.tsx
-│   ├── react-app-env.d.ts
-│   ├── reportWebVitals.ts
-│   ├── setupTests.ts
-│   ├── types
-│   └── utils
-├── tsconfig.json
-└── yarn.lock
-
-```
-
-うーんなんか出してみたけど書くことないよな
-なんかあったら書いて！
 
 ## 各ページの紹介
 
@@ -177,8 +55,7 @@ npm run start
 ### 結果画面
 
 スコアが表示されます。採点基準の説明はこちら
-下に表示されている画像は、reg-cli のレポーと>?????
-Firestore に保存
+下に表示されている画像は、reg-cli が出力してくれているレポートで、提出したソースコードのプレビュー画像と見本画像の差分を表示してくれています。
 
 ---
 
