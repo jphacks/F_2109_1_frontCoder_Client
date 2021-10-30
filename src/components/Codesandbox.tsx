@@ -14,7 +14,7 @@ const Codesandbox: VFC = () => {
     <iframe
       src={`https://codesandbox.io/embed/${switchID(
         1
-      )}?fontsize=14&hidenavigation=1&theme=light`}
+      )}?fontsize=14&hidenavigation=1&theme=light&file=index.html`}
       className="iframe-coding"
       title={`FrontCoder 問題${id + 1}`}
       allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
