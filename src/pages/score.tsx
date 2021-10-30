@@ -5,13 +5,62 @@ import Toolbar from '@mui/material/Toolbar'
 import { Container } from '@mui/material'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
+import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { useParams } from 'react-router'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import { styled } from '@mui/material/styles'
+import SportsScoreIcon from '@mui/icons-material/SportsScore'
 import Paper from '@mui/material/Paper'
 
+const TitleTypography = styled(Typography)({
+  paddingTop: 24,
+  fontWeight: 500,
+  paddingBottom: 32,
+  display: 'inline',
+})
+
+const StyledScore = styled(Typography)({
+  fontWeight: 500,
+})
+
+const CustamizedGroupIcon = styled(SportsScoreIcon)({
+  paddingRight: 16,
+  paddingTop: 24,
+  paddingLeft: 32,
+  fontSize: 40,
+  verticalAlign: 'bottom',
+})
+
+const StyledTableCell = styled(TableCell)(() => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: 'white',
+    color: 'black',
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+    backgroundColor: 'white',
+    color: 'black',
+  },
+}))
+
+const StyledTableRow = styled(TableRow)(() => ({
+  backgroundColor: 'white',
+  textAlign: 'center',
+  color: 'black',
+}))
+
+const StyledTable = styled(Table)(() => ({
+  maxWidth: '500px',
+  textAlign: 'center',
+}))
+
+const StyledBox = styled(Box)(() => ({
+  backgroundColor: '#5cb85c',
+  color: 'white',
+}))
 const Footer: VFC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -40,75 +89,48 @@ export type ScoreParams = {
 const Score: VFC = () => {
   const { imageURL, imageScore } = useParams<ScoreParams>()
   const _imageURL = imageURL.replace(/~/g, '/')
-  console.log(_imageURL, imageScore)
   return (
-    <Container>
-      <Box
-        sx={{
-          width: '100%',
-          height: '100%',
-          padding: '0 0 100px 0',
-        }}
-      >
-        <Container sx={{ padding: '10px 0' }}>
-          <Box
-            sx={{
-              backgroundColor: 'rgb(93,170,15)',
-              borderRadius: '130px',
-              width: '90%',
-              margin: '0 auto',
-            }}
-          >
-            <Box sx={{ height: '30px' }}></Box>
-            <Box
-              sx={{
-                width: '60%',
-                margin: '0 auto',
-                // backgroundColor: 'rgb(250,250,240)',
-                textAlign: 'center',
-                fontSize: '30px',
-                color: 'white',
-              }}
-            >
-              <h2>採点結果</h2>
+    <>
+      <Container>
+        <TitleTypography variant="h4" className="futura">
+          <CustamizedGroupIcon />
+          Result
+        </TitleTypography>
+        <Box ml={5}>
+          <Box mt={5}>
+            <Grid container justifyContent="center" alignItems="center">
+              <Grid item xs>
+                <StyledBox px={4} py={3}>
+                  <Typography variant="h5" align="center">
+                    Score
+                  </Typography>
+                  <StyledScore variant="h2" align="center">
+                    73
+                    <Typography variant="body1" component="span">
+                      /100
+                    </Typography>
+                  </StyledScore>
+                </StyledBox>
+              </Grid>
+              <Grid item xs>
+                <SpanningTable imageScore={imageScore}></SpanningTable>
+              </Grid>
+            </Grid>
+            {/* <img src={_imageURL} />  数値入るとこれ*/}
+            {/* でもいまは来ないので仮にこれで */}
+            <Box mt={3}>
+              <img
+                className="w-100"
+                src="https://i.ibb.co/f1L5mJW/2021-10-29-13-57-23.png"
+              />
             </Box>
-            <Box sx={{ height: '0px' }}></Box>
-            <Box
-              sx={{
-                margin: '0 auto',
-                maxWidth: '50%',
-                backgroundColor: 'rgb(230, 220, 210)',
-                textAlign: 'center',
-                borderRadius: '30px',
-                verticalAlign: 'middle',
-              }}
-            >
-              <Box
-                sx={{
-                  fontSize: '30px',
-                  color: 'red',
-                  verticalAlign: 'middle',
-                  margin: 'auto 0',
-                  fontWeight: 'bold',
-                }}
-              >
-                <i>
-                  <a href={_imageURL}>採点結果画像をみる</a>
-                </i>
-              </Box>
-            </Box>
-            <Box sx={{ height: '50px' }}></Box>
-            <SpanningTable imageScore={imageScore}></SpanningTable>
-            <Box sx={{ height: '150px' }}></Box>
           </Box>
-        </Container>
-      </Box>
+        </Box>
+      </Container>
       <Footer />
-    </Container>
+    </>
   )
 }
-
-//////////////////////////////////////////
 
 const TAX_RATE = 0.07
 
@@ -144,73 +166,57 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal
 
 const SpanningTable = (props: { imageScore: string }) => {
   return (
-    <TableContainer
-      component={Paper}
-      sx={{
-        borderRadius: '10px',
-        maxWidth: '80%',
-        margin: '0 auto',
-        backgroundColor: 'rgb(255, 245, 240)',
-      }}
-    >
-      <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+    <StyledTable>
+      <Table sx={{ minWidth: 350 }} aria-label="spanning table">
         <TableHead>
-          <TableRow
-            sx={{
-              width: '100%',
-            }}
-          >
-            <TableCell
-              align="right"
-              sx={{ fontWeight: 'bold', fontSize: '20px' }}
-            >
+          <StyledTableRow>
+            <StyledTableCell align="center" className="ranking_header">
               採点項目
-            </TableCell>
-            <TableCell
-              align="right"
-              sx={{ fontWeight: 'bold', fontSize: '20px' }}
-            >
+            </StyledTableCell>
+            <StyledTableCell align="center" className="ranking_header">
               採点結果
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell align="right" sx={{ fontWeight: 'bold' }}>
+            </StyledTableCell>
+          </StyledTableRow>
+          <StyledTableRow>
+            <StyledTableCell align="center" className="ranking">
               デザイン
-            </TableCell>
-            <TableCell
-              align="right"
-              sx={{ fontWeight: 'bold', fontSize: '20px' }}
-            >
+            </StyledTableCell>
+            <StyledTableCell align="center" className="ranking_number">
               {props.imageScore}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell align="right" sx={{ fontWeight: 'bold' }}>
+            </StyledTableCell>
+          </StyledTableRow>
+          <StyledTableRow>
+            <StyledTableCell align="center" className="ranking">
               コード
-            </TableCell>
-            <TableCell
-              align="right"
-              sx={{ fontWeight: 'bold', fontSize: '20px' }}
-            >
+            </StyledTableCell>
+            <StyledTableCell align="center" className="ranking_number">
               33
-            </TableCell>
-          </TableRow>
+            </StyledTableCell>
+          </StyledTableRow>
         </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell rowSpan={3} />
-            <TableCell colSpan={2}>
+        {/* <TableBody>
+          <StyledTableRow>
+            <StyledTableCell rowSpan={3} />
+            <StyledTableCell align="center" className="ranking">
               <Container
                 sx={{ fontFamily: '', fontWeight: 'bold', fontSize: '30px' }}
               >
-                <Box sx={{ float: 'left' }}>Total</Box>
-                <Box sx={{ float: 'right', color: 'red' }}>73</Box>
+                <Box sx={{ float: 'left' }}>
+                  <Typography variant="h2" align="center">
+                    Total
+                  </Typography>
+                </Box>
+                <Box sx={{ float: 'right', color: 'red' }}>
+                  <Typography variant="h2" align="center">
+                    73
+                  </Typography>
+                </Box>
               </Container>
-            </TableCell>
-          </TableRow>
-        </TableBody>
+            </StyledTableCell>
+          </StyledTableRow>
+        </TableBody> */}
       </Table>
-    </TableContainer>
+    </StyledTable>
   )
 }
 
