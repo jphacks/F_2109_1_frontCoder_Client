@@ -89,7 +89,7 @@ const Footer: VFC = () => {
 
     const name = auth.currentUser?.displayName ?? `名無しさん`
 
-    db.collection('/score/').add({ user: name, score: imageScore })
+    await db.collection('/score/').add({ user: name, score: imageScore })
     history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
