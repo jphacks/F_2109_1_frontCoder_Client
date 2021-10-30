@@ -39,7 +39,7 @@ export default function ActionAreaCard(props: {
 }): JSX.Element {
   return (
     <CustomCard>
-      <CardActionArea href={'https://google.com/' + props.id}>
+      <CardActionArea>
         <CardMedia
           component="img"
           height="140"

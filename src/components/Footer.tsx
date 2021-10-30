@@ -10,6 +10,7 @@ import uploadFile from '../api/uploadFile'
 import { useHistory } from 'react-router'
 import StopWatch from './StopWatch'
 import getCode from '../utils/getCode'
+import { db, auth } from '../config/firebase'
 
 const Footer: VFC = () => {
   const history = useHistory()
@@ -77,6 +78,9 @@ const Footer: VFC = () => {
       console.error(e)
     }
 
+    const name = auth.currentUser?.displayName ?? `名無しさん`
+
+    db.collection('/score/').add({ user: name, score: imageScore })
     history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
