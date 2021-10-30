@@ -103,9 +103,8 @@ const Footer: VFC = () => {
 
     const name = auth.currentUser?.displayName ?? `名無しさん`
     const standardizationImageScore = Math.round(imageScore * 100)
-    await db
-      .collection('/score/')
-      .add({ user: name, score: standardizationImageScore })
+    const score = (standardizationImageScore + testscore) / 2
+    await db.collection('/score/').add({ user: name, score: score })
     history.push(
       `/score/${reportUrl.replace(
         /\//g,
