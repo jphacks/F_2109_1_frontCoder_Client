@@ -20,6 +20,9 @@ const TitleTypography = styled(Typography)({
 
 const CustamizedAccessTimeIcon = styled(AccessTimeIcon)({
   paddingRight: 16,
+  paddingLeft: 32,
+  fontSize: 40,
+  verticalAlign: 'bottom',
 })
 
 export default function CompetitionsList(): JSX.Element {
@@ -49,7 +52,7 @@ export default function CompetitionsList(): JSX.Element {
   return (
     <div>
       <Container>
-        <TitleTypography variant="h4">
+        <TitleTypography variant="h4" className="futura">
           <CustamizedAccessTimeIcon />
           Active Problems
         </TitleTypography>

@@ -123,7 +123,6 @@ export default function CompetitionsList(props: any): JSX.Element {
               </Grid>
             </Grid>
             <Grid item xs>
-              {console.log(scorelist)}
               <RankingList list={ranking} onlyscore={scorelist} />
             </Grid>
           </Grid>

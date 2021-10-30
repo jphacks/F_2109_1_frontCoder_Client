@@ -20,6 +20,14 @@ code {
   font-style: normal !important;
 }
 
+.ranking_number {
+  font-family: futura-pt, sans-serif !important;
+  /* 500でもいい？どっちがいい？ */
+  font-weight: 500 !important;
+  font-size: 32px !important;
+  font-style: normal !important;
+}
+
 .ranking_header {
   font-family: futura-pt, sans-serif !important;
   font-weight: 600 !important;
@@ -30,4 +38,10 @@ code {
 
 .futura {
   font-family: futura-pt, sans-serif !important;
+}
+
+.w-100 {
+  width: 100%;
+  min-width: 300px;
+  float: center;
 }
