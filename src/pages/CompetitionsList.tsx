@@ -29,7 +29,7 @@ export default function CompetitionsList(): JSX.Element {
   const [problems, setProblems] = useState<Problem[]>([])
   const history = useHistory()
   axios
-    .get('v0.2.0/problem') //リクエストを飛ばすpath
+    .get('http://54.95.10.72:3000/v0.2.0/problem') //リクエストを飛ばすpath
     .then((response) => {
       setProblems(response.data)
     }) //成功した場合、postsを更新する（then）

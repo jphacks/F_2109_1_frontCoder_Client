@@ -107,12 +107,14 @@ const Footer: VFC = () => {
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <StopWatch />
-          <Button
-            style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}
-            onClick={submitCode}
-          >
-            提出
-          </Button>
+          <Box mr={1} ml={1}>
+            <Button
+              style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}
+              onClick={submitCode}
+            >
+              提出
+            </Button>
+          </Box>
           <Button
             style={{ backgroundColor: '#98fb98', color: '#FFFFFF' }}
             onClick={runTest}
