@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import '../css/coding.css'
 import getSandBoxImage from '../utils/getSandBoxImage'
+import log from '../../public/problem/p1.png'
 
 const SampleView: VFC = () => {
   const [preview, setPreview] = useState('')
@@ -30,7 +31,7 @@ const SampleView: VFC = () => {
         }}
       >
         <div className="preview">
-          <img src={preview} alt="お手本" />
+          <img src={`/problem/p1.png`} alt="お手本" />
         </div>
       </Box>
     </div>
