@@ -1,6 +1,6 @@
 # Front Coder フロントエンド
 
-サーバーサイド及び背景については[こちら](https://github.com/jphacks/F_2109）
+サーバーサイド及び背景については[こちら](https://github.com/jphacks/F_2109)
 
 ## アーキテクチャ図
 
@@ -50,7 +50,8 @@ npm run start
 
 ### コーディングページ
 
-![Uploading スクリーンショット 2021-10-30 22.12.51.png…]()
+<img width="1440" alt="スクリーンショット 2021-10-31 2 03 05" src="https://user-images.githubusercontent.com/42875682/139542318-9b54f788-273c-4a08-b771-8b1e9d4744f5.png">
+
 
 ### 結果画面
 
