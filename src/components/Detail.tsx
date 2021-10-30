@@ -4,7 +4,6 @@ import DetailItem from './detail/DetailItem'
 import { DetailParams } from '../types/params'
 import styled from 'styled-components'
 import TechnologyChip from './detail/TechnologyChip'
-import PreviewImage from '../images/thumbnail.png'
 import { Problem } from '../types/schema'
 import { useEffect, useState } from 'react'
 import fetchProblem from '../api/fetchProblem'
@@ -12,12 +11,6 @@ import { pages } from '../const/pages'
 
 const Bold = styled.span`
   font-size: 40px;
-`
-
-const ImageFrame = styled.img`
-  width: 100%;
-  height: 95vh;
-  object-fit: cover;
 `
 
 function Detail(): JSX.Element {
@@ -46,7 +39,7 @@ function Detail(): JSX.Element {
   }
 
   return (
-    <Box>
+    <Box mt={4}>
       <Grid container justifyContent="space-around" alignItems="center">
         <Grid item xs={6}>
           <Typography variant="h2" component="h1">
@@ -85,9 +78,6 @@ function Detail(): JSX.Element {
               </Button>
             </Grid>
           </Box>
-        </Grid>
-        <Grid item xs={4}>
-          <ImageFrame src={PreviewImage} />
         </Grid>
       </Grid>
     </Box>
