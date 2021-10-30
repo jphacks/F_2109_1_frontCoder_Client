@@ -1,1 +1,5 @@
+//export const API_URL = 'http://54.95.10.72:3000'
+//export const API_URL = 'http://localhost:8000'
+//export const API_URL = 'http://18.212.90.236:3000'
+//export const API_URL = 'https://frontcoder.de.r.appspot.com'
 export const API_URL = 'https://frontcoder.net:3000'
