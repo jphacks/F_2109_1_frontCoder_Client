@@ -1,5 +1,4 @@
 import { VFC } from 'react'
-
 import Footer from '../components/Footer'
 import { Box } from '@mui/material'
 import Codesandbox from '../components/Codesandbox'

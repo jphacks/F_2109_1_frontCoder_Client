@@ -98,7 +98,7 @@ const Score: VFC = () => {
         </TitleTypography>
         <Box ml={5}>
           <Box mt={5}>
-            <Grid container justifyContent="center" alignItems="center">
+            <Grid container justifyContent="center" spacing={5}>
               <Grid item xs>
                 <StyledBox px={4} py={3}>
                   <Typography variant="h5" align="center">
@@ -127,7 +127,6 @@ const Score: VFC = () => {
           </Box>
         </Box>
       </Container>
-      <Footer />
     </>
   )
 }
@@ -216,6 +215,7 @@ const SpanningTable = (props: { imageScore: string }) => {
           </StyledTableRow>
         </TableBody> */}
       </Table>
+      <a href="/ranking">ランキングを見る</a>
     </StyledTable>
   )
 }
