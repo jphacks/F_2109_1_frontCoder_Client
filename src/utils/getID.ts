@@ -1,5 +1,5 @@
 const getID = (path: string) => {
-  return path.slice(-8, -6)
+  return Number(path.slice(-8, -7))
 }
 
 export default getID

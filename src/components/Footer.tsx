@@ -12,9 +12,17 @@ import StopWatch from './StopWatch'
 import getCode from '../utils/getCode'
 import { db, auth } from '../config/firebase'
 import runTest from '../utils/runTest'
+import { useLocation } from 'react-router-dom'
+import getID from '../utils/getID'
 
 const Footer: VFC = () => {
   const history = useHistory()
+  const path = useLocation().pathname
+  const id = getID(path)
+  console.log('pasy')
+  console.log(path)
+  console.log(id)
+
   const submitCode = async () => {
     console.info('/v0.1.0/upload')
     const req1 = {
@@ -91,7 +99,11 @@ const Footer: VFC = () => {
     const code = getCode()
     const tag_num = runTest(code)
     //if (tag_num === 2) {
-    toast.error('画像タグの数が足りません')
+    if (id === 1) {
+      toast.success('テスト成功')
+    } else {
+      toast.error('画像タグの数が足りません')
+    }
     //}
   }
 
@@ -110,7 +122,15 @@ const Footer: VFC = () => {
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <StopWatch />
-          <Box mr={1} ml={1}>
+          <Box mr={2} ml={2}>
+            <Button
+              style={{ backgroundColor: '#003333', color: '#FFFFFF' }}
+              onClick={submitTest}
+            >
+              テスト
+            </Button>
+          </Box>
+          <Box mr={2} ml={2}>
             <Button
               style={{ backgroundColor: '#F87896', color: '#FFFFFF' }}
               onClick={submitCode}
@@ -118,12 +138,6 @@ const Footer: VFC = () => {
               提出
             </Button>
           </Box>
-          <Button
-            style={{ backgroundColor: '#98fb98', color: '#FFFFFF' }}
-            onClick={submitTest}
-          >
-            テスト
-          </Button>
         </Toolbar>
       </AppBar>
     </Box>
