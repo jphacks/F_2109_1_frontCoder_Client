@@ -25,7 +25,7 @@ const Footer: VFC = () => {
 
   const submitCode = async () => {
     console.info('/v0.1.0/upload')
-    const req1 = {
+    const dir = {
       source_code: {
         dirName: '/',
         file: [
@@ -47,6 +47,11 @@ const Footer: VFC = () => {
         ],
       },
     }
+    const req1 = {
+      userId: auth.currentUser.uid,
+      problemImageName: `p${id}`,
+      sourceCode: dir,
+    }
     let imageURL = ''
     let imageScore = 0
     try {
@@ -56,20 +61,26 @@ const Footer: VFC = () => {
         console.info(imageURL)
       })
     } catch (e) {
+      console.log('upload error')
       console.error(e)
     }
 
+    toast.success('UIテスト中です. これには十数秒かかります.')
     console.info('/v0.1.0/imgScore')
     const req2 = {
-      url: 'https://dev.d2evtgvttl8fuv.amplifyapp.com/p1.png',
+      userId: auth.currentUser.uid,
+      problemImageName: `p${id}`,
+      url: imageURL,
     }
     try {
+      console.log(imageURL)
       await getScore(req2).then((imgScore) => {
         toast.success('UIテストが完了しました.')
         console.info(imgScore)
         imageScore = imgScore.imgScore
       })
     } catch (e) {
+      console.log('ui test error')
       console.error(e)
     }
 
@@ -88,9 +99,13 @@ const Footer: VFC = () => {
     }
 
     const name = auth.currentUser?.displayName ?? `名無しさん`
-
-    await db.collection('/score/').add({ user: name, score: imageScore })
-    history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
+    const standardizationImageScore = Math.round(imageScore * 100)
+    await db
+      .collection('/score/')
+      .add({ user: name, score: standardizationImageScore })
+    history.push(
+      `/score/${imageURL.replace(/\//g, '~')}/${standardizationImageScore}`
+    )
   }
 
   const submitTest = async () => {

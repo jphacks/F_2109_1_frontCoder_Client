@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { API_URL } from './endpoint'
 
-const endpoint = `${API_URL}/v0.1.0/imgScore`
+const endpoint = `https://frontcoder.net/v0.2.0/imgScore`
 
 type Props = {
+  userId: string
+  problemImageName: string
   url: string
 }
 
