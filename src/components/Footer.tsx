@@ -11,6 +11,7 @@ import { useHistory } from 'react-router'
 import StopWatch from './StopWatch'
 import getCode from '../utils/getCode'
 import { db, auth } from '../config/firebase'
+import runTest from '../utils/runTest'
 
 const Footer: VFC = () => {
   const history = useHistory()
@@ -84,12 +85,14 @@ const Footer: VFC = () => {
     history.push(`/score/${imageURL.replace(/\//g, '~')}/${imageScore}`)
   }
 
-  const runTest = async () => {
+  const submitTest = async () => {
     console.info('start test')
     console.info('get Code!!!')
     const code = getCode()
-    const tag_num = runTest()
+    const tag_num = runTest(code)
+    //if (tag_num === 2) {
     toast.error('画像タグの数が足りません')
+    //}
   }
 
   return (
@@ -115,7 +118,7 @@ const Footer: VFC = () => {
           </Button>
           <Button
             style={{ backgroundColor: '#98fb98', color: '#FFFFFF' }}
-            onClick={runTest}
+            onClick={submitTest}
           >
             テスト
           </Button>
