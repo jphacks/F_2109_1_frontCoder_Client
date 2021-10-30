@@ -42,7 +42,7 @@ export default function ActionAreaCard(props: {
         <CardMedia
           component="img"
           height="140"
-          image={require(`../problem/p${props.image}.png`)}
+          image={`/problem/p${props.id}.png`}
           alt="green iguana"
         />
         <CardContent>
