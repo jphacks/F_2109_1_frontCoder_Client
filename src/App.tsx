@@ -29,7 +29,7 @@ const theme = createTheme({
 function App(): JSX.Element {
   return (
     <>
-      <ToastContainer position="top-center" autoClose={1500} />
+      <ToastContainer position="top-center" autoClose={3000} />
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Auth>
