@@ -30,7 +30,7 @@ export default function CompetitionsList(): JSX.Element {
   const history = useHistory()
   useEffect(() => {
     axios
-      .get('http://54.95.10.72:3000/v0.2.0/problem') //リクエストを飛ばすpath
+      .get('https://frontcoder.net/v0.2.0/problem') //リクエストを飛ばすpath
       .then((response) => {
         console.log(response.data['problem'])
         setProblems(response.data['problem'])
