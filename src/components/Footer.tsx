@@ -104,7 +104,26 @@ const Footer: VFC = () => {
     const name = auth.currentUser?.displayName ?? `名無しさん`
     const standardizationImageScore = Math.round(imageScore * 100)
     const score = (standardizationImageScore + testscore) / 2
-    await db.collection('/score/').add({ user: name, score: score })
+
+    await db
+      .collection('/score/')
+      .doc(auth.currentUser?.uid)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          if (doc.data()['score'] < score) {
+            db.collection('/score/')
+              .doc(auth.currentUser?.uid)
+              .set({ user: name, score: score })
+          }
+        } else {
+          // doc.data() will be undefined in this case
+          console.log('No such document!')
+        }
+      })
+      .catch((error) => {
+        console.log('Error getting document:', error)
+      })
     history.push(
       `/score/${reportUrl.replace(
         /\//g,
