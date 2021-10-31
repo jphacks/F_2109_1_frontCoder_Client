@@ -40,11 +40,12 @@ export default function CompetitionsList(props: any): JSX.Element {
   const scoretmp: any = []
   // ranking
   useEffect(() => {
-    db.collection('score')
+    db.collection(`/${id['id']}/`)
       .orderBy('score', 'desc')
       .get()
       .then((querySnapshot) =>
         querySnapshot.forEach((doc) => {
+          console.log(tmp)
           tmp.push(doc.data())
           scoretmp.push(doc.data()['score'])
         })
@@ -58,19 +59,21 @@ export default function CompetitionsList(props: any): JSX.Element {
       })
   }, [])
   if (user) {
-    console.log(user)
     // useEffect(() => {
-    db.collection('score')
+    db.collection(`/${id['id']}/`)
       .doc(user)
-      // .doc(id)
       .get()
       .then((doc: any) => {
         if (doc.exists) {
           setScore(doc.data()['score']) // 1 問題id 0 0番目スコア
         }
       })
+      .catch((error) => {
+        console.log('Error getting documents: ', error)
+      })
     // }, [])
   }
+
   return (
     <div>
       <MyContext.Consumer>{(value) => setUser(value)}</MyContext.Consumer>
