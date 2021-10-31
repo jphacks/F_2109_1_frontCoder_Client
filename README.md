@@ -21,9 +21,9 @@ npm run start
 
 ## 使用ライブラリ / API / サービス
 
-- Material ui
-- Firebase Auth
-- Firebase FireStore
+- MUI
+- Firebase Authentication
+- Cloud Firestore
 
 ## デプロイ
 
