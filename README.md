@@ -25,9 +25,19 @@ npm run start
 - Firebase Auth
 - Firebase FireStore
 
-## 概要
+## デプロイ
 
 フロントエンドは Amazon Amplify を使用してアップロードしています。CI/CD を利用しており、push されると自動でサーバーに後悔することができます。
+
+## 開発方針
+
+- ブランチ運用: [Gitflow](https://www.atlassian.com/ja/git/tutorials/comparing-workflows/gitflow-workflow)
+- バージョニング: [セマンティックバージョニング](https://semver.org/lang/ja/)
+- タスク管理: [Github Projects](https://github.com/jphacks/F_2109_1_frontCoder_Client/projects/1)
+
+## ソースコードの品質担保
+
+[husky](https://typicode.github.io/husky/#/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [TypeScript](https://www.typescriptlang.org/)の導入によりソースコードの品質を維持しながら開発を行いました。
 
 ## 採点スコア
 
