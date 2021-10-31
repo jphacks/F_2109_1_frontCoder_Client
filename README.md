@@ -53,7 +53,7 @@ npm run start
 ### 概要ページ
 
 サーバーからその課題がどのくらいの難易度で、どのくらい制作するのに時間がかかるかを取得し、表示しています。
-<img width="1804" alt="スクリーンショット 2021-10-30 22 18 19" src="https://user-images.githubusercontent.com/54165015/139534276-990b1314-df8a-419f-ac81-8daa6f543f3b.png">
+<img width="1716" alt="スクリーンショット 2021-10-31 14 45 32" src="https://user-images.githubusercontent.com/54165015/139569856-7e613f98-f325-44c4-af30-c2d69d826bd2.png">
 
 ### コーディングページ
 
@@ -66,9 +66,7 @@ npm run start
 スコアが表示されます。
 下に表示されている画像は、reg-cli が出力してくれているレポートで、提出したソースコードのプレビュー画像と見本画像の差分を表示してくれています。
 
----
-
-<img width="1804" alt="スクリーンショット 2021-10-30 22 22 56" src="https://user-images.githubusercontent.com/54165015/139534409-6f35170a-9f28-4a05-aef1-4871a2ce54ac.png">
+<img width="1672" alt="スクリーンショット 2021-10-31 14 47 34" src="https://user-images.githubusercontent.com/54165015/139569885-8071a308-e29e-4f23-91e5-00eb216456ba.png">
 
 ### ランキング画面
 
