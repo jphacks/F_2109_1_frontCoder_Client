@@ -37,7 +37,7 @@ function App(): JSX.Element {
               <Route exact path="/">
                 <Competitions />
               </Route>
-              <Route exact path="/ranking">
+              <Route exact path="/:id/ranking">
                 <Ranking />
               </Route>
               <Route path="/coding">

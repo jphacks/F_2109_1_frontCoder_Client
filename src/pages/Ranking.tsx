@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import { db } from '../config/firebase'
+import { useParams } from 'react-router'
 import { useEffect, useState } from 'react'
 import RankingList from '../components/RankingList'
 import GroupIcon from '@mui/icons-material/Group'
@@ -31,6 +32,7 @@ const SubtitleTypography = styled(Typography)({
 
 export default function CompetitionsList(props: any): JSX.Element {
   const [score, setScore] = useState(0)
+  const id = useParams()
   const [user, setUser]: any = useState('')
   const [ranking, setRanking] = useState([])
   const [scorelist, setScoreList]: any = useState([])
@@ -38,11 +40,12 @@ export default function CompetitionsList(props: any): JSX.Element {
   const scoretmp: any = []
   // ranking
   useEffect(() => {
-    db.collection('score')
+    db.collection(`/${id['id']}/`)
       .orderBy('score', 'desc')
       .get()
       .then((querySnapshot) =>
         querySnapshot.forEach((doc) => {
+          console.log(tmp)
           tmp.push(doc.data())
           scoretmp.push(doc.data()['score'])
         })
@@ -56,9 +59,8 @@ export default function CompetitionsList(props: any): JSX.Element {
       })
   }, [])
   if (user) {
-    console.log(user)
     // useEffect(() => {
-    db.collection('score')
+    db.collection(`/${id['id']}/`)
       .doc(user)
       .get()
       .then((doc: any) => {
@@ -66,8 +68,12 @@ export default function CompetitionsList(props: any): JSX.Element {
           setScore(doc.data()['score']) // 1 問題id 0 0番目スコア
         }
       })
+      .catch((error) => {
+        console.log('Error getting documents: ', error)
+      })
     // }, [])
   }
+
   return (
     <div>
       <MyContext.Consumer>{(value) => setUser(value)}</MyContext.Consumer>
