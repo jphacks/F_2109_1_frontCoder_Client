@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import { db } from '../config/firebase'
+import { useParams } from 'react-router'
 import { useEffect, useState } from 'react'
 import RankingList from '../components/RankingList'
 import GroupIcon from '@mui/icons-material/Group'
@@ -31,12 +32,13 @@ const SubtitleTypography = styled(Typography)({
 
 export default function CompetitionsList(props: any): JSX.Element {
   const [score, setScore] = useState(0)
+  const id = useParams()
   const [user, setUser]: any = useState('')
   const [ranking, setRanking] = useState([])
   const [scorelist, setScoreList]: any = useState([])
   const tmp: any = []
   const scoretmp: any = []
-  console.log(user)
+  console.log(id)
   // ranking
   useEffect(() => {
     db.collection('score')
@@ -60,6 +62,7 @@ export default function CompetitionsList(props: any): JSX.Element {
     // useEffect(() => {
     db.collection('score')
       .doc(user)
+      // .doc(id)
       .get()
       .then((doc: any) => {
         if (doc.exists) {

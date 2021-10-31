@@ -10,6 +10,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { useParams } from 'react-router'
 import Grid from '@mui/material/Grid'
+import { useHistory, useLocation } from 'react-router-dom'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 import SportsScoreIcon from '@mui/icons-material/SportsScore'
@@ -88,6 +89,7 @@ export type ScoreParams = {
 }
 
 const Score: VFC = () => {
+  const location = useLocation()
   const { imageURL, imageScore, testScore } = useParams<ScoreParams>()
   const _imageURL = imageURL.replace(/~/g, '/')
   const imgScore = Number(imageScore) / 2
@@ -121,6 +123,13 @@ const Score: VFC = () => {
                   imageScore={imgScore}
                   testScore={tstScore}
                 ></SpanningTable>
+                {location.state !== undefined ? (
+                  <a href={'/' + location.state['id'] + '/ranking'}>
+                    ランキングを見る
+                  </a>
+                ) : (
+                  <a></a>
+                )}
               </Grid>
             </Grid>
             <Box my={3}>
@@ -166,8 +175,6 @@ const rows = [
 ]
 
 const invoiceSubtotal = subtotal(rows)
-const invoiceTaxes = TAX_RATE * invoiceSubtotal
-const invoiceTotal = invoiceTaxes + invoiceSubtotal
 
 const SpanningTable = (props: { imageScore: number; testScore: number }) => {
   return (
@@ -221,7 +228,6 @@ const SpanningTable = (props: { imageScore: number; testScore: number }) => {
           </StyledTableRow>
         </TableBody> */}
       </Table>
-      <a href="/ranking">ランキングを見る</a>
     </StyledTable>
   )
 }

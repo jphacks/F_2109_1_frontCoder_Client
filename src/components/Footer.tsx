@@ -105,12 +105,15 @@ const Footer: VFC = () => {
     const standardizationImageScore = Math.round(imageScore * 100)
     const score = (standardizationImageScore + testscore) / 2
     await db.collection('/score/').add({ user: name, score: score })
-    history.push(
-      `/score/${reportUrl.replace(
+    history.push({
+      pathname: `/score/${reportUrl.replace(
         /\//g,
         '~'
-      )}/${standardizationImageScore}/${testscore}`
-    )
+      )}/${standardizationImageScore}/${testscore}`,
+      state: {
+        id: id,
+      },
+    })
   }
 
   const submitTest = async () => {
