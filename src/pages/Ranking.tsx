@@ -36,7 +36,6 @@ export default function CompetitionsList(props: any): JSX.Element {
   const [scorelist, setScoreList]: any = useState([])
   const tmp: any = []
   const scoretmp: any = []
-  console.log(user)
   // ranking
   useEffect(() => {
     db.collection('score')
@@ -57,6 +56,7 @@ export default function CompetitionsList(props: any): JSX.Element {
       })
   }, [])
   if (user) {
+    console.log(user)
     // useEffect(() => {
     db.collection('score')
       .doc(user)
@@ -74,7 +74,7 @@ export default function CompetitionsList(props: any): JSX.Element {
       <Container>
         <TitleTypography variant="h4" className="futura">
           <CustamizedGroupIcon />
-          Realtime Ranking
+          Realtime Best Score Ranking
           <SubtitleTypography variant="h6" className="futura">
             {/* Kaggle 2021 Kite AI Competiton   タイトル取得できれば */}
           </SubtitleTypography>
@@ -97,7 +97,7 @@ export default function CompetitionsList(props: any): JSX.Element {
                 <Grid item xs>
                   <Box mt={3}>
                     <Typography align="center" variant="body1">
-                      スコア(p)
+                      ベストスコア(p)
                     </Typography>
                     <Typography align="center" variant="h2" className="futura">
                       {score}
