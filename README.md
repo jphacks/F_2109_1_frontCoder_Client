@@ -51,7 +51,6 @@ npm run start
 
 <img width="1440" alt="スクリーンショット 2021-10-31 2 03 05" src="https://user-images.githubusercontent.com/42875682/139542318-9b54f788-273c-4a08-b771-8b1e9d4744f5.png">
 
-
 ### 結果画面
 
 スコアが表示されます。
