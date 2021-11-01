@@ -15,12 +15,19 @@ import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 import SportsScoreIcon from '@mui/icons-material/SportsScore'
 import Paper from '@mui/material/Paper'
+import Button from '@mui/material/Button'
+import Link from '@mui/material/Link'
 
 const TitleTypography = styled(Typography)({
   paddingTop: 24,
   fontWeight: 500,
   paddingBottom: 32,
   display: 'inline',
+})
+
+const LinkTypography = styled(Typography)({
+  color: 'deepskyblue',
+  paddingTop: 4,
 })
 
 const StyledScore = styled(Typography)({
@@ -62,6 +69,12 @@ const StyledBox = styled(Box)(() => ({
   backgroundColor: '#5cb85c',
   color: 'white',
 }))
+
+const DetailBox = styled(Box)(() => ({
+  backgroundColor: '#5cb85c',
+  color: 'white',
+}))
+
 const Footer: VFC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -105,7 +118,7 @@ const Score: VFC = () => {
         <Box ml={5}>
           <Box mt={5}>
             <Grid container justifyContent="center" spacing={5}>
-              <Grid item xs>
+              <Grid item xs={4}>
                 <StyledBox px={4} py={3}>
                   <Typography variant="h5" align="center">
                     Score
@@ -117,21 +130,46 @@ const Score: VFC = () => {
                     </Typography>
                   </StyledScore>
                 </StyledBox>
+                {location.state !== undefined ? (
+                  <Link
+                    href={'/' + location.state['id'] + '/ranking'}
+                    underline="none"
+                  >
+                    <LinkTypography variant="h6">Ranking Page</LinkTypography>
+                  </Link>
+                ) : (
+                  <a></a>
+                )}
+                <Link href="/" underline="none">
+                  <LinkTypography variant="h6">Top Page</LinkTypography>
+                </Link>
               </Grid>
               <Grid item xs>
+                {/* <Box mb={3}>
+                  <Typography variant="h4" className="futura">
+                    Evaluation
+                  </Typography>
+                </Box> */}
                 <SpanningTable
                   imageScore={imgScore}
                   testScore={tstScore}
                 ></SpanningTable>
-                {location.state !== undefined ? (
+                {/* {location.state !== undefined ? (
                   <a href={'/' + location.state['id'] + '/ranking'}>
                     ランキングを見る
                   </a>
                 ) : (
                   <a></a>
-                )}
+                )} */}
               </Grid>
             </Grid>
+            {/* <DetailBox>
+              <Box py={1}>
+                <Typography variant="h6" align="center">
+                  詳細を見る
+                </Typography>
+              </Box>
+            </DetailBox> */}
             <Box my={3}>
               <iframe
                 className="w-100"
@@ -146,36 +184,6 @@ const Score: VFC = () => {
   )
 }
 
-const TAX_RATE = 0.07
-
-function priceRow(qty: number, unit: number) {
-  return qty * unit
-}
-
-function createRow(desc: string, qty: number, unit: number) {
-  const price = priceRow(qty, unit)
-  return { desc, qty, unit, price }
-}
-
-interface Row {
-  desc: string
-  qty: number
-  unit: number
-  price: number
-}
-
-function subtotal(items: readonly Row[]) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0)
-}
-
-const rows = [
-  createRow('Paperclips (Box)', 100, 1.15),
-  createRow('Paper (Case)', 10, 45.99),
-  createRow('Waste Basket', 2, 17.99),
-]
-
-const invoiceSubtotal = subtotal(rows)
-
 const SpanningTable = (props: { imageScore: number; testScore: number }) => {
   return (
     <StyledTable>
@@ -188,6 +196,9 @@ const SpanningTable = (props: { imageScore: number; testScore: number }) => {
             <StyledTableCell align="center" className="ranking_header">
               採点結果
             </StyledTableCell>
+            {/* <StyledTableCell align="center" className="ranking_header">
+              詳細
+            </StyledTableCell> */}
           </StyledTableRow>
           <StyledTableRow>
             <StyledTableCell align="center" className="ranking">
@@ -196,6 +207,10 @@ const SpanningTable = (props: { imageScore: number; testScore: number }) => {
             <StyledTableCell align="center" className="ranking_number">
               {props.imageScore}
             </StyledTableCell>
+            {/* <StyledTableCell
+              align="center"
+              className="ranking_number"
+            ></StyledTableCell> */}
           </StyledTableRow>
           <StyledTableRow>
             <StyledTableCell align="center" className="ranking">
@@ -204,6 +219,10 @@ const SpanningTable = (props: { imageScore: number; testScore: number }) => {
             <StyledTableCell align="center" className="ranking_number">
               {props.testScore}
             </StyledTableCell>
+            {/* <StyledTableCell
+              align="center"
+              className="ranking_number"
+            ></StyledTableCell> */}
           </StyledTableRow>
         </TableHead>
         {/* <TableBody>
